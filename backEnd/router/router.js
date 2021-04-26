@@ -1,9 +1,11 @@
 let express = require("express");
 let router = express.Router();  //router reference. 
-let mainController = require("../controller/mainController.js");
+let employeeController = require("../controller/employee.controller");
 
-//mapping sub path with http methods. 
+//mapping sub path with http methods.
 
+
+router.get("/empSignIn",employeeController.empSignIn)
 
 
 
