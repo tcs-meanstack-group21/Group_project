@@ -26,6 +26,6 @@ const CustomerSchema = new Schema({
     cart: { type: Map, of: Number, default: {} }
 });
 
-const CustomerModel = mongoose.model("", CustomerSchema, "users");
+const CustomerModel = mongoose.model("customers", CustomerSchema);
 
 module.exports = CustomerModel;

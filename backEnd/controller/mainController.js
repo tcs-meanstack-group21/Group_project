@@ -1,1 +1,0 @@
-let mianModel = require("../model/mainModel.js");
