@@ -8,11 +8,10 @@ const getCart = (req, res) => {
         if (!err) {
             let user = data[0];
             let cartKeys = [...user.cart.keys()];
-            for (let i of cartKeys) {
-                i = eval(i);
-            }
-            ProductModel.find({ _id: { "$in": cartKeys } }, (err2, result) => {
-                if (!err2) res.json(result);
+            ProductModel.find({ '_id': {$in: cartKeys} }, (err2, result) => {
+                if (!err2) {
+                    res.json(result);
+                }
                 else res.send("Error" + err2);
             })
         }
@@ -21,15 +20,21 @@ const getCart = (req, res) => {
 
 const addProductToCart = (req, res) => {
     const productId = req.body.pid.toString();
-    const userId = req.body.uid;
-    const addQuantity = req.body.quantity;
+    const userId = req.params.uid;
+    const addQuantity = parseInt(req.body.quantity);
     CustomerModel.find({ _id: userId }, (err, data) => {
         if (!err) {
             let user = data[0];
             if (user) {
-                const oldQuantity = user.cart.get(productId) || 0;
+                let oldQuantity = user.cart.get(productId);
+                if (oldQuantity == undefined) oldQuantity = 0;
+                console.log(oldQuantity)
                 user.cart.set(productId, oldQuantity + addQuantity);
-                res.send("Successfully added item");
+                CustomerModel.updateOne({_id: userId}, {cart: user.cart}, (err2, result) => {
+                    if(err2) result.send("Error generated: " + err2);
+                    else res.send("Successfully added item");
+                })
+                console.log(user.cart);
             } else {
                 res.send("Error: no user found");
             }
@@ -41,15 +46,18 @@ const addProductToCart = (req, res) => {
 
 const removeProductFromCart = (req, res) => {
     const productId = req.body.pid.toString();
-    const userId = req.body.uid;
+    const userId = req.params.uid;
     CustomerModel.find({ _id: userId }, (err, data) => {
         if (!err) {
             let user = data[0];
             if (user) {
                 user.cart.delete(productId);
-                res.send("Item deleted")
+                CustomerModel.updateOne({_id: userId}, {cart: user.cart}, (err2, result) => {
+                    if(err2) result.send("Error generated: " + err2);
+                    else res.send("Successfully deleted item");
+                })
             }
-        } else res.send("An error occured")
+        } else res.send("Error generated: " + err);
     })
 }
 
