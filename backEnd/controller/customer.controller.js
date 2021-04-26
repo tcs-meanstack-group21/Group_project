@@ -8,9 +8,12 @@ const getCart = (req, res) => {
         if (!err) {
             let user = data[0];
             let cartKeys = [...user.cart.keys()];
+            for (let i of cartKeys) {
+                i = eval(i);
+            }
             ProductModel.find({ _id: { "$in": cartKeys } }, (err2, result) => {
                 if (!err2) res.json(result);
-                else res.send(err2);
+                else res.send("Error" + err2);
             })
         }
     })
