@@ -15,7 +15,7 @@ const mongooseDbOption ={       // to avoid warning
     useUnifiedTopology: true
 }
 mongoose.connect(url,mongooseDbOption); 
-
+mongoose.Promise = global.Promise;
 mongoose.connection
 
 
