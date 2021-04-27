@@ -25,4 +25,7 @@ app.use("/",route)
 const customerRouter = require("./router/customer.router.js");
 app.use("/customer", customerRouter);
 
+const productRouter = require("./router/product.router");
+app.use("/product", productRouter)
+
 app.listen(port,()=> console.log(`Server running on http://localhost:${port}`));

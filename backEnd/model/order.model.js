@@ -12,6 +12,6 @@ const OrderSchema = new Schema({
     cancellationReason: { type: String, default: "" }
 });
 
-const OrderModel = mongoose.model("", OrderSchema, "orders");
+const OrderModel = mongoose.model("Order", OrderSchema, "orders");
 
 module.exports = OrderModel;
