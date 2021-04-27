@@ -6,9 +6,9 @@ const OrderSchema = new Schema({
     _id: Number,
     customer: Number,
     cart: { type: Map, of: Number, required: true },
-    status: { type: String, default: "in progress" }, //in progress, shipped, out for delivery, delivered
     dateOrdered: { type: Date, default: Date.now() },
     dateDelivered: { type: Date, default: null },
+    orderStatus : { type: String, default: "Order label created."},
     cancellationReason: { type: String, default: "" }
 });
 
