@@ -8,6 +8,6 @@ const EmployeeSchema = new Schema({
     lastLogTime : {type : Date}
 });
 
-const EmployeeModel = mongoose.model("", EmployeeSchema, "employee");
+const EmployeeModel = mongoose.model("Employee", EmployeeSchema, "employees");
 
 module.exports = EmployeeModel;
