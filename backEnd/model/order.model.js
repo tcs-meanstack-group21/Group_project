@@ -8,9 +8,10 @@ const OrderSchema = new Schema({
     cart: { type: Map, of: Number },
     dateOrdered: { type: Date, default: Date.now() },
     dateDelivered: Date,
+    orderStatus : { type: String, default: "Order label created."},
     cancellationReason: { type: String, default: "" }
 });
 
-const OrderModel = mongoose.model("", OrderSchema, "orders");
+const OrderModel = mongoose.model("Order", OrderSchema, "orders");
 
 module.exports = OrderModel;
