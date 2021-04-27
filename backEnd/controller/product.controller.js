@@ -72,4 +72,13 @@ let updateProductQuantity= (req,res)=> {
 
 }
 
-module.exports = {addProduct, deleteProductByName, updateProductPrice, updateProductQuantity}
+//function to retrieve all products
+let retrieveProducts = (req,res)=>{
+    ProductModel.find({},(err,result)=>{
+        if(!err){
+            res.json(result)
+        }
+    })
+}
+
+module.exports = {addProduct, deleteProductByName, updateProductPrice, updateProductQuantity, retrieveProducts}
