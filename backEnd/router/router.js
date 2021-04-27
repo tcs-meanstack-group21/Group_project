@@ -6,7 +6,7 @@ const employeeController = require("../controller/employee.controller");
 
 
 router.get("/empSignIn",employeeController.empSignIn)
-
+router.get("/empSignUp", )
 
 
 module.exports=router;
