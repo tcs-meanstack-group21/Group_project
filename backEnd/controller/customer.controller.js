@@ -1,5 +1,6 @@
 const ProductModel = require("../model/product.model")
 const CustomerModel = require("../model/customer.model")
+const OrderModel = require("../model/order.model")
 
 // in Angular, use pid for product._id and uid for user._id
 const getCart = (req, res) => {
@@ -8,7 +9,7 @@ const getCart = (req, res) => {
         if (!err) {
             let user = data[0];
             let cartKeys = [...user.cart.keys()];
-            ProductModel.find({ '_id': {$in: cartKeys} }, (err2, result) => {
+            ProductModel.find({ '_id': { $in: cartKeys } }, (err2, result) => {
                 if (!err2) {
                     res.json(result);
                 }
@@ -28,13 +29,11 @@ const addProductToCart = (req, res) => {
             if (user) {
                 let oldQuantity = user.cart.get(productId);
                 if (oldQuantity == undefined) oldQuantity = 0;
-                console.log(oldQuantity)
                 user.cart.set(productId, oldQuantity + addQuantity);
                 CustomerModel.updateOne({_id: userId}, {cart: user.cart}, (err2, result) => {
                     if(err2) result.send("Error generated: " + err2);
                     else res.send("Successfully added item");
                 })
-                console.log(user.cart);
             } else {
                 res.send("Error: no user found");
             }
@@ -61,4 +60,41 @@ const removeProductFromCart = (req, res) => {
     })
 }
 
-module.exports = { getCart, addProductToCart, removeProductFromCart }
+//I will redo this function to make it better, just trying to get it to work for now
+const checkout = (req, res) => {
+    const userId = req.params.uid;
+    CustomerModel.findById(userId, (err1, user) => {
+        if (!err1 && user) {
+            let cartKeys = [...user.cart.keys()];
+            ProductModel.find({ '_id': { $in: cartKeys } }, (err2, products) => {
+                if (!err2) {
+                    let cartCost = 0;
+                    for (product of products) {
+                        cartCost += product.price * user.cart.get(product._id); //product price times quantity
+                    }
+                    console.log(cartCost);
+                    if (cartCost > user.funds) {
+                        res.send("Insufficient funds");
+                        return;
+                    }
+                    OrderModel.create({ customer: user._id, cart: user.cart }, (err3, order) => {
+                        if (err3) {
+                            res.send("Could not create order");
+                            return;
+                        }
+                        CustomerModel.findByIdAndUpdate(userId, { order: order._id, funds: user.funds - cartCost }, (err4, cust) => {
+                            if (!err4) {
+                                res.send("Order successfully placed");
+                            } else {
+                                res.send("Could not update user");
+                            }
+                        })
+                    })
+                }
+                else res.send("Error" + err2);
+            })
+        } else res.send("Error: ")
+    })
+}
+
+module.exports = { getCart, addProductToCart, removeProductFromCart, checkout }
