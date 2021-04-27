@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { EmployeeRequestComponent } from './employee-request/employee-request.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmployeeRequestComponent } from './employee-request/employee-request.co
     SignUpPageComponent,
     InitComponent,
     EmployeeDashboardComponent,
-    EmployeeRequestComponent
+    EmployeeRequestComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
