@@ -30,8 +30,8 @@ const addProductToCart = (req, res) => {
                 let oldQuantity = user.cart.get(productId);
                 if (oldQuantity == undefined) oldQuantity = 0;
                 user.cart.set(productId, oldQuantity + addQuantity);
-                CustomerModel.updateOne({_id: userId}, {cart: user.cart}, (err2, result) => {
-                    if(err2) result.send("Error generated: " + err2);
+                CustomerModel.updateOne({ _id: userId }, { cart: user.cart }, (err2, result) => {
+                    if (err2) result.send("Error generated: " + err2);
                     else res.send("Successfully added item");
                 })
             } else {
@@ -51,8 +51,8 @@ const removeProductFromCart = (req, res) => {
             let user = data[0];
             if (user) {
                 user.cart.delete(productId);
-                CustomerModel.updateOne({_id: userId}, {cart: user.cart}, (err2, result) => {
-                    if(err2) result.send("Error generated: " + err2);
+                CustomerModel.updateOne({ _id: userId }, { cart: user.cart }, (err2, result) => {
+                    if (err2) result.send("Error generated: " + err2);
                     else res.send("Successfully deleted item");
                 })
             }
@@ -70,23 +70,22 @@ const checkout = (req, res) => {
                 if (!err2) {
                     let cartCost = 0;
                     for (product of products) {
-                        cartCost += product.price * user.cart.get(product._id); //product price times quantity
+                        cartCost += parseFloat(product.price) * parseFloat(user.cart.get(product._id.toString())); //product price times quantity
                     }
-                    console.log(cartCost);
                     if (cartCost > user.funds) {
                         res.send("Insufficient funds");
                         return;
                     }
-                    OrderModel.create({ customer: user._id, cart: user.cart }, (err3, order) => {
+                    OrderModel.create({ _id: user._id, customer: user._id, cart: user.cart }, (err3, order) => {
                         if (err3) {
-                            res.send("Could not create order");
+                            res.send("Could not create order: " + err3);
                             return;
                         }
-                        CustomerModel.findByIdAndUpdate(userId, { order: order._id, funds: user.funds - cartCost }, (err4, cust) => {
+                        CustomerModel.findByIdAndUpdate(userId, { order: order._id, funds: user.funds - cartCost, cart: {} }, { useFindAndModify: false }, (err4, cust) => {
                             if (!err4) {
                                 res.send("Order successfully placed");
                             } else {
-                                res.send("Could not update user");
+                                res.send("Could not update user: " + err4);
                             }
                         })
                     })

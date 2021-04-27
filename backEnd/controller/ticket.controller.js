@@ -17,7 +17,7 @@ const raiseTicket = (req, res) => {
         if (!err1 && user.ticket == null) {
             TicketModel.create({ customer: userId, body: ticketBody }, (err2, ticketData) => {
                 if (!err2) {
-                    CustomerModel.findByIdAndUpdate(userId, {ticket: ticketData}, (err3, data) => {
+                    CustomerModel.findByIdAndUpdate(userId, {ticket: ticketData}, { useFindAndModify: false }, (err3, data) => {
                         if(!err3) {
                             res.send("Ticket Successfully raised");
                         } else res.send("Could not update customer");
