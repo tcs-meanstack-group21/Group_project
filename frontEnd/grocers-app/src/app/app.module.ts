@@ -8,7 +8,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { InitComponent } from './init/init.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http'
     SignUpComponent,
     SignUpPageComponent,
     InitComponent,
-    AddProductComponent
+    AddProductComponent,
+    RetrieveProductComponent
   ],
   imports: [
     BrowserModule,

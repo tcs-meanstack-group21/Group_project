@@ -15,6 +15,6 @@ export class AddProductComponent implements OnInit {
 
   addProduct(productRef:any){
     console.log(productRef);
-    this.proService.appProductDetails(productRef);
+    this.proService.addProductDetails(productRef);
   }
 }
