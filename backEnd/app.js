@@ -26,7 +26,10 @@ const customerRouter = require("./router/customer.router.js");
 app.use("/customer", customerRouter);
 
 const productRouter = require("./router/product.router");
-app.use("/product", productRouter)
+app.use("/product", productRouter);
+
+const ticketRouter = require("./router/ticket.router")
+app.use("/ticket", ticketRouter);
 
 const orderRouter = require("./router/order.router");
 app.use("/order",orderRouter)
