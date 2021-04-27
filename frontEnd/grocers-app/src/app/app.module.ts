@@ -11,6 +11,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
+import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     SignUpComponent,
     SignUpPageComponent,
     InitComponent,
-    EmployeeDashboardComponent
+    EmployeeDashboardComponent,
+    EmployeeRequestComponent
   ],
   imports: [
     BrowserModule,
