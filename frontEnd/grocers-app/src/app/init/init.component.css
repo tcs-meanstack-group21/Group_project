@@ -1,0 +1,33 @@
+h1 {
+  color: blueviolet;
+  text-align: center;
+}
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+.clearFix {
+  clear: both;
+}
+.center {
+  text-align: center;
+}
+#form {
+  padding: 50px;
+  max-width: 50%;
+  margin: 0 auto;
+  border: blue 1px solid;
+  border-radius: 30px;
+}
+.col {
+  margin-top: 100px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.signInButton {
+  display: flex;
+  justify-content: center;
+}
