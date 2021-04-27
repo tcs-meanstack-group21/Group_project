@@ -20,7 +20,7 @@ let addProduct = (req,res)=> {
 
 //function to delete product by name
 let deleteProductByName= (req,res)=> {
-    let pname = req.body.pname;
+    let pname = req.params.pname;
     ProductModel.deleteOne({name:pname},(err,result)=> {
         if(!err){
                 if(result.deletedCount>0){

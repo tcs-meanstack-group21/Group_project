@@ -8,13 +8,16 @@ import { ProductService } from '../product.service';
 })
 export class AddProductComponent implements OnInit {
 
+  addMsg?:string;
+
   constructor(public proService:ProductService) { }
 
   ngOnInit(): void {
   }
 
   addProduct(productRef:any){
-    console.log(productRef);
-    this.proService.addProductDetails(productRef);
+    // console.log(productRef);
+    this.proService.addProductDetails(productRef)
+      .subscribe((result:string)=>this.addMsg=result,(error:string)=>this.addMsg=error);
   }
 }

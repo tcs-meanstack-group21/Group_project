@@ -10,12 +10,15 @@ export class ProductService {
 
   constructor(public http:HttpClient) { }
 
-  addProductDetails(productRef:any) {
-    this.http.post("http://localhost:9090/product/addProduct",productRef)
-      .subscribe(result=>console.log(result),error=>console.log(error));
+  addProductDetails(productRef:any):any {
+    return this.http.post("http://localhost:9090/product/addProduct",productRef, {responseType:'text'})
   }
 
   retrieveProductDetails():Observable<Product[]>{
     return this.http.get<Product[]>("http://localhost:9090/product/retrieveProducts")
+  }
+
+  deleteProductByName(name:any):any{
+    return this.http.delete("http://localhost:9090/product/deleteProduct/"+name,{responseType:'text'})
   }
 }

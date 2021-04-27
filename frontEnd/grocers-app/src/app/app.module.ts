@@ -9,7 +9,8 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { InitComponent } from './init/init.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import {HttpClientModule} from '@angular/common/http';
-import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component'
+import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RetrieveProductComponent } from './retrieve-product/retrieve-product.co
     SignUpPageComponent,
     InitComponent,
     AddProductComponent,
-    RetrieveProductComponent
+    RetrieveProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,
