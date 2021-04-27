@@ -9,6 +9,10 @@ const ProductSchema = new Schema({
     quantity: Number
 });
 
-const ProductModel = mongoose.model("products", ProductSchema, "products");
+const ProductModel = mongoose.model("Product", ProductSchema, "products");
 
 module.exports = ProductModel;
+
+// ProductModel.create({_id: 1000, name: "Test Product", price: 200, quantity: 50}, (err, res) => {
+//     console.log(err + res)
+// })
