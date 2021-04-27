@@ -13,7 +13,8 @@
     <button class="btn floatRight" mat-stroked-button color="primary">Logout</button>
         
     <hr class="clearFix">
-
+    
+    <!-- Form to submit product quantities for Employee -->
     <div class="center">
         
         <form id="form" [formGroup]="productRequestForm" (ngSubmit)="sendProductRequest()">
@@ -38,8 +39,48 @@
                 <input type="reset" value="Reset" class="btn btn-outline-primary">
             </div>
         </form>
+    </div>
 
-        <hr>
-
+    <!-- Display Pending Requests in Table for Employee -->
+    <div class="tableDisplay">
+        <h1>Pending Requests</h1>
+        <table class="table table-striped table-hover table-responsive-lg">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Request #</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Requested Quantity</th>
+                    <th scope="col">Employee Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row">
+                    <td>Request # here</td>
+                    <td>Product SKU</td>
+                    <td>Product name</td>
+                    <td>Product quantity</td>
+                    <td>Product requested update quantity</td>
+                    <td>Requested by</td>
+                </tr>
+                <tr scope="row">
+                    <td>Request # here</td>
+                    <td>Product SKU</td>
+                    <td>Product name</td>
+                    <td>Product quantity</td>
+                    <td>Product requested update quantity</td>
+                    <td>Requested by</td>
+                </tr>
+                <tr scope="row">
+                    <td>Request # here</td>
+                    <td>Product SKU</td>
+                    <td>Product name</td>
+                    <td>Product quantity</td>
+                    <td>Product requested update quantity</td>
+                    <td>Requested by</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
