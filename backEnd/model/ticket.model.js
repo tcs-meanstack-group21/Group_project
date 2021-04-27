@@ -18,4 +18,4 @@ module.exports = TicketModel;
 //     body: "Test body",
 //     customer: 1,
 //     dateClosed: null
-// })
+// }, (err, data) => console.log(data));

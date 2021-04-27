@@ -26,6 +26,9 @@ const customerRouter = require("./router/customer.router");
 app.use("/customer", customerRouter);
 
 const productRouter = require("./router/product.router");
-app.use("/product", productRouter)
+app.use("/product", productRouter);
+
+const ticketRouter = require("./router/ticket.router")
+app.use("/ticket", ticketRouter);
 
 app.listen(port,()=> console.log(`Server running on http://localhost:${port}`));
