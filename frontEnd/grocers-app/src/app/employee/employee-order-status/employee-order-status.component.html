@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="floatLeft">Modify Order Status</h1>
+
+    <!-- Main NavBar for Employee view -->
+    <div class="floatLeft">
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empDash">Dashboard</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empReq">Send Product Request</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../employeeUnlockUser">Locked Users</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../employeeEditProfile">Edit Profile</a>
+    </div>
+    <!-- Logout for Employee -->
+    <button class="btn floatRight" mat-stroked-button color="primary">Logout</button>
+        
+    <hr class="clearFix">
+
+    <div class="center">
+        <form id="form" [formGroup]="orderUpdateForm" (ngSubmit)="updateStatus()">
+            <div class = "row mb-3">
+
+                <label class="col-sm-2 col-form-label">Order Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="oid">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="status">
+                </div>
+
+                <input type="submit" value="Update Order" class="btn btn-outline-primary">
+                <input type="reset" value="Reset" class="btn btn-outline-primary">
+            </div>
+        </form>
+    </div>
+</div>
