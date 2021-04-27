@@ -7,11 +7,15 @@ const TicketSchema = new Schema({
     customer: Number,
     status: { type: String, default: "open" },
     dateOpened: { type: Date, default: Date.now() },
-    dateClosed: Date
+    dateClosed: { type: Date, default: null }
 });
 
 const TicketModel = mongoose.model("Ticket", TicketSchema, "tickets");
 
 module.exports = TicketModel;
 
-// TicketModel.create({body: "TestBody", cus})
+// TicketModel.create({
+//     body: "Test body",
+//     customer: 1,
+//     dateClosed: null
+// })
