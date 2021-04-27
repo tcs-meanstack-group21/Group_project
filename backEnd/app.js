@@ -19,10 +19,10 @@ mongoose.Promise = global.Promise;
 mongoose.connection
 
 
-let route = require("./router/router.js");
+const route = require("./router/router.js");
 app.use("/",route)
 
-const customerRouter = require("./router/customer.router");
+const customerRouter = require("./router/customer.router.js");
 app.use("/customer", customerRouter);
 
 app.listen(port,()=> console.log(`Server running on http://localhost:${port}`));
