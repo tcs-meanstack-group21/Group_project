@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmpSignInComponent } from './emp-sign-in/emp-sign-in.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
   {path: "", redirectTo : "\init", pathMatch:"full"},
+  {path: "\empSignIn", component : EmpSignInComponent},
   {path: "\addProduct", component: AddProductComponent},
   {path: "retrieveProducts", component: RetrieveProductComponent},
   {path: "\deleteProduct", component: DeleteProductComponent},
