@@ -2,7 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { InitComponent } from './init/init.component';
+import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+
+//Product App Routes
+import { AddProductComponent } from './add-product/add-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
+import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component';
 
 //Employee App Routes
 import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
@@ -15,6 +22,11 @@ const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
   {path: "", redirectTo : "\init", pathMatch:"full"},
+  {path: "\addProduct", component: AddProductComponent}, // Product - Add
+  {path: "retrieveProducts", component: RetrieveProductComponent}, // Product - Retrieve
+  {path: "\deleteProduct", component: DeleteProductComponent}, // Product - Delete
+  {path: "updatePrice", component: UpdateProductPriceComponent},  // Product - Update Price
+  {path: "updateQuantity", component: UpdateProductQuantityComponent},  // Product - Update Quantity
   {path:"\empDash", component: EmployeeDashboardComponent}, // Employee - Dashboard
   {path:"\empReq", component: EmployeeRequestComponent}, // Employee - Send Request
   {path:"\empOrd", component: EmployeeOrderStatusComponent}, // Employee - Update Order Status
