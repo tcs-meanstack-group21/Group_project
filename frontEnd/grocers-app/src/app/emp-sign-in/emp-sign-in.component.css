@@ -1,6 +1,5 @@
 h1 {
   color: blueviolet;
-  text-align: center;
 }
 .floatLeft {
   float: left;
@@ -14,14 +13,16 @@ h1 {
 .center {
   text-align: center;
 }
+.red {
+  color: red;
+}
 #form {
   padding: 50px;
   max-width: 50%;
   margin: 0 auto;
-  border: blue 1px solid;
-  border-radius: 30px;
+  border: black 1px solid;
 }
-.col {
-  margin-top: 100px;
-  height: 200px;
+.btn {
+  margin-right: 50px;
+  margin-top: 20px;
 }

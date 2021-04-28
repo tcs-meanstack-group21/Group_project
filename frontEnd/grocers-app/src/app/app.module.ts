@@ -23,15 +23,16 @@ import { UpdateProductPriceComponent } from './update-product-price/update-produ
 import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
 
 // Employee Components
-import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
+import { EmpSignInComponent } from './emp-sign-in/emp-sign-in.component';
+import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
 import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/employee-edit-profile.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     SignUpComponent,
     SignUpPageComponent,
@@ -45,7 +46,8 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     EmployeeRequestComponent,
     EmployeeOrderStatusComponent,
     EmployeeLockedUsersComponent,
-    EmployeeEditProfileComponent
+    EmployeeEditProfileComponent,
+    EmpSignInComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
