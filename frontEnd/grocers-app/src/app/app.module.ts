@@ -17,6 +17,8 @@ import { InitComponent } from './init/init.component';
 import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
+import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
+import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/employee-edit-profile.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { EmployeeOrderStatusComponent } from './employee/employee-order-status/e
     InitComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
-    EmployeeOrderStatusComponent
+    EmployeeOrderStatusComponent,
+    EmployeeLockedUsersComponent,
+    EmployeeEditProfileComponent
   ],
   imports: [
     BrowserModule,
