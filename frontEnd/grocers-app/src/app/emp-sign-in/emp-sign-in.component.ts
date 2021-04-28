@@ -11,17 +11,19 @@ export class EmpSignInComponent implements OnInit {
 
   signInInfo = new FormGroup({
     user : new FormControl(),
-    pass : new FormControl(),
-    conf : new FormControl()
+    pass : new FormControl()
   })
 
+  message?: string ;
 
   constructor(private empServer: EmployeeService ) { }
 
   ngOnInit(): void {
   }
-  signIn(){
-    this.empServer.empSignIn(this.signInInfo.value)
+  async signIn(){ 
+    await this.empServer.empSignIn(this.signInInfo.value);
+     this.message = this.empServer.signInMessage;
+     this.message = "Not correct username and password"
   }   
 
 }

@@ -5,8 +5,7 @@ const employeeController = require("../controller/employee.controller");
 //mapping sub path with http methods.
 
 
-router.get("/empSignIn",employeeController.empSignIn)
-router.get("/empSignUp", )
+router.post("/empSignIn",employeeController.empSignIn)
 
 
 module.exports=router;
