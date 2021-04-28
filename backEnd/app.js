@@ -34,4 +34,7 @@ app.use("/ticket", ticketRouter);
 const orderRouter = require("./router/order.router");
 app.use("/order",orderRouter)
 
+const Employee = require("./router/employee.router.js");
+app.use("/employee",Employee)
+
 app.listen(port,()=> console.log(`Server running on http://localhost:${port}`));
