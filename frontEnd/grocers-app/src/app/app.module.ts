@@ -11,6 +11,10 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 import { CartComponent } from './cart/cart.component';
 
@@ -29,7 +33,11 @@ import { CartComponent } from './cart/cart.component';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule,
+    MatTableModule,
+    MatDividerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
