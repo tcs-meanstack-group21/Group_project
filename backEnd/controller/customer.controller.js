@@ -96,4 +96,33 @@ const checkout = (req, res) => {
     })
 }
 
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout }
+const addFunds = (req,res) =>{
+    const cid = req.body.uid;
+    const cfunds = parseFloat(req.body.funds);
+
+    CustomerModel.updateOne({_id : cid}, {$set: {funds : cfunds}}, (err,result) =>{
+        if(!err){
+            if(result.nModified>0){
+                    res.send("Funds updated succesfully")
+            }else {
+                    res.send("User is not available");
+            }
+        }else {
+            res.send("Error generated "+err.message);
+        }
+    })
+}
+
+const getFunds = (req,res) =>{
+    const cid = req.params.uid;
+    CustomerModel.find({_id:cid},(err,data)=> {
+        if(!err){
+            res.json(data); 
+        }else{
+            res.send("No user found")
+        }
+    })
+}
+
+
+module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds}
