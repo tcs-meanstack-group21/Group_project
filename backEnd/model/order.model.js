@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
     _id: Number,
-    customer: Schema.Types.ObjectId,
-    cart: { type: Map, of: Number },
+    customer: Number,
+    cart: { type: Map, of: Number, required: true },
     dateOrdered: { type: Date, default: Date.now() },
-    dateDelivered: Date,
+    dateDelivered: { type: Date, default: null },
     orderStatus : { type: String, default: "Order label created."},
     cancellationReason: { type: String, default: "" }
 });

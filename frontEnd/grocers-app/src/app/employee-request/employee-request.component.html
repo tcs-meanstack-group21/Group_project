@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 class="floatLeft">Send Product Request</h1>
+
+    <!-- Main NavBar for Employee view -->
+    <div class="floatLeft">
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empDash">Dashboard</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../employeeUpdateStatus">Update/View Order Status</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../employeeUnlockUser">Locked Users</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../employeeEditProfile">Edit Profile</a>
+    </div>
+    
+    <!-- Logout for Employee -->
+    <button class="btn floatRight" mat-stroked-button color="primary">Logout</button>
+        
+    <hr class="clearFix">
+
+    <div class="center">
+        
+        <form id="form" [formGroup]="productRequestForm" (ngSubmit)="sendProductRequest()">
+            <div class = "row mb-3">
+
+                <label class="col-sm-2 col-form-label">Product ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="pid">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Updated Quantity</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="qupdate">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Employee ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="uid">
+                </div>
+
+                <input type="submit" value="Submit Request" class="btn btn-outline-primary">
+                <input type="reset" value="Reset" class="btn btn-outline-primary">
+            </div>
+        </form>
+
+        <hr>
+
+    </div>
+</div>

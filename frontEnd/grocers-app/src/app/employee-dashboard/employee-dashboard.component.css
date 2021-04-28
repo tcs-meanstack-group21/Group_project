@@ -1,0 +1,20 @@
+h1 {
+    color: blueviolet;
+  }
+  .floatLeft {
+    float: left;
+  }
+  .floatRight {
+    float: right;
+  }
+  .clearFix {
+    clear: both;
+  }
+  .center {
+    text-align: center;
+  }
+  .btn {
+    margin-right: 50px;
+    margin-top: 20px;
+  }
+  

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 import { InitComponent } from './init/init.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: "retrieveProducts", component: RetrieveProductComponent},
   {path: "\deleteProduct", component: DeleteProductComponent},
   {path: "updatePrice", component: UpdateProductPriceComponent},
-  {path: "updateQuantity", component: UpdateProductQuantityComponent}
+  {path: "updateQuantity", component: UpdateProductQuantityComponent},
+  {path:"\empDash", component: EmployeeDashboardComponent}, // Employee - Dashboard
+  {path:"\empReq", component: EmployeeRequestComponent} // Employee - Send Request
 ];
 
 @NgModule({

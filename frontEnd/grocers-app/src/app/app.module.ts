@@ -13,6 +13,11 @@ import { RetrieveProductComponent } from './retrieve-product/retrieve-product.co
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
 import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +29,18 @@ import { UpdateProductQuantityComponent } from './update-product-quantity/update
     RetrieveProductComponent,
     DeleteProductComponent,
     UpdateProductPriceComponent,
-    UpdateProductQuantityComponent
+    UpdateProductQuantityComponent,
+    EmployeeDashboardComponent,
+    EmployeeRequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
