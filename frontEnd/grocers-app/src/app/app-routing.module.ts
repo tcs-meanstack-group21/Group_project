@@ -4,13 +4,17 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { EmployeeRequestComponent } from './employee-request/employee-request.component';
 import { InitComponent } from './init/init.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
   {path: "", redirectTo : "\init", pathMatch:"full"},
   {path:"\empDash", component: EmployeeDashboardComponent}, // Employee - Dashboard
-  {path:"\empReq", component: EmployeeRequestComponent} // Employee - Send Request
+  {path:"\empReq", component: EmployeeRequestComponent}, // Employee - Send Request
+  {path:"\addEmployee", component: AddEmployeeComponent},
+  {path:"\deleteEmployee", component: DeleteEmployeeComponent}
 ];
 
 @NgModule({
