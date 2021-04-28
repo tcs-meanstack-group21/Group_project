@@ -20,7 +20,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
-import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
+import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component';
 
 // Employee Components
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
@@ -29,6 +29,9 @@ import { EmployeeDashboardComponent } from './employee/employee-dashboard/employ
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
 import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/employee-edit-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     UpdateProductQuantityComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
+    AddEmployeeComponent,
+    DeleteEmployeeComponent,
+    AdminComponent,
     EmployeeOrderStatusComponent,
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
@@ -57,6 +63,7 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

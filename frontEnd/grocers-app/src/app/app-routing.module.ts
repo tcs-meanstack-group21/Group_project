@@ -6,6 +6,8 @@ import { EmpSignInComponent } from './emp-sign-in/emp-sign-in.component';
 import { InitComponent } from './init/init.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 
 //Product App Routes
 import { AddProductComponent } from './add-product/add-product.component';
@@ -35,6 +37,8 @@ const routes: Routes = [
   {path: "\empSignIn", component : EmpSignInComponent}, // Employee - Sign In
   {path:"\empDash", component: EmployeeDashboardComponent}, // Employee - Dashboard
   {path:"\empReq", component: EmployeeRequestComponent}, // Employee - Send Request
+  {path:"\addEmployee", component: AddEmployeeComponent},
+  {path:"\deleteEmployee", component: DeleteEmployeeComponent},
   {path:"\empOrd", component: EmployeeOrderStatusComponent}, // Employee - Update Order Status
   {path:"\empLock", component: EmployeeLockedUsersComponent}, // Employee - Locked Users
   {path:"\empEdit", component: EmployeeEditProfileComponent} // Employee - Edit Profile
