@@ -9,4 +9,13 @@ const AdminSchema = new Schema({
 
 const AdminModel = mongoose.model("Admin", AdminSchema, "admin");
 
+// try{
+    AdminModel.create({_id:"admin", pass:"admin123"},(err,data) => {
+        if(!err){
+            console.log(data)
+        }else{
+           console.log("Admin user exists!")
+        }
+    })
+
 module.exports = AdminModel;
