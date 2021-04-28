@@ -1,4 +1,4 @@
-let EmployeeModel = require("../model/addEmployee.model.js");
+const EmployeeModel = require("../model/addEmployee.model.js");
 
 
 
@@ -23,7 +23,7 @@ let addEmployeeInfo = (req,res)=> {
 
 }
 
-let deleteEmployeeById= (req,res)=> {
+const deleteEmployeeById= (req,res)=> {
     let pid = req.params.pid;
     EmployeeModel.deleteOne({_id:pid},(err,result)=> {
         if(!err){

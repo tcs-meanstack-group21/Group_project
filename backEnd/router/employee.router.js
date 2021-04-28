@@ -1,6 +1,6 @@
-let express = require("express");
-let router = express.Router();  //router reference. 
-let EmployeeController = require("../controller/addEmployee.controller.js");
+const express = require("express");
+const router = express.Router();  //router reference. 
+const EmployeeController = require("../controller/addEmployee.controller.js");
 
 //mapping sub path with http methods. 
 router.post("/addEmployeeInfo",EmployeeController.addEmployeeInfo);
