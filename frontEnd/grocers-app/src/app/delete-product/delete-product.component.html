@@ -1,0 +1,6 @@
+<div>
+    <h2>Delete Product by Name</h2>
+    Name : <input type="text" #nameRef/><br/>
+    <input type="button" value="Delete Product by Name" (click)="deleteProductByName(nameRef.value)"/><br/>
+    {{deleteMsg}}
+</div>
