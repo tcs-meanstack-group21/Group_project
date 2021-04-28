@@ -8,6 +8,6 @@ router.delete("/:uid/removeProductFromCart", CustomerController.removeProductFro
 router.post("/:uid/checkout", CustomerController.checkout)
 router.get("/getFunds/:uid", CustomerController.getFunds)
 router.post("/addFunds", CustomerController.addFunds)
-
+router.get("/custSignIn",CustomerController.custSignIn)
 
 module.exports = router;

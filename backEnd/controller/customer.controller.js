@@ -123,6 +123,18 @@ const getFunds = (req,res) =>{
         }
     })
 }
+let custSignIn = (req,res) =>{
+    const cid = req.body.cid;
+    const pass = req.body.pass;
+    CustomerModel.findOne({_id:cid,password:pass} , (err,data) => {
+
+        if(!err){
+            res.json(data);
+        }else{
+            res.json(err.message)
+        }
+    })
+}
 
 
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds}
+module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds, custSignIn}

@@ -22,7 +22,6 @@ export class EmpSignInComponent implements OnInit {
   }
   async signIn(){ 
     await this.empServer.empSignIn(this.signInInfo.value);
-     this.message = this.empServer.signInMessage;
      this.message = "Not correct username and password"
   }   
 

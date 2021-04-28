@@ -1,5 +1,5 @@
 <div class="container">
-    <app-admin></app-admin>
+    <!-- <app-admin></app-admin> -->
     <app-sign-up></app-sign-up>
     <div class="center">
         <h1>Grocers-Stroe</h1>
@@ -7,18 +7,20 @@
             <div class="row">
                 <div class="col">
                     <div class="signInButton">
-                        <button class="btn btn-outline-primary">sign in as admin</button>
+                        <button class="btn btn-outline-primary">sign in as Admin</button>
                     </div>
                 </div>
                 <div class="col">
                     <div class="signInButton">
-                        <button class="btn btn-outline-primary">sign in as customer</button>
+                        <a routerLink="../custSignIn">
+                            <button class="btn btn-outline-primary">sign in as Customer</button>
+                        </a>
                     </div>
                 </div>
                 <div class="col">
                     <div class="signInButton">
                         <a routerLink="../empSignIn">
-                            <button class="btn btn-outline-primary">sign in as employee</button>
+                            <button class="btn btn-outline-primary">sign in as Employee</button>
                         </a>
                     </div>
                 </div>

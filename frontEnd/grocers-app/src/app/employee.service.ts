@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -8,15 +7,14 @@ import { Router } from '@angular/router';
 })
 export class EmployeeService {
 
-  signInMessage? : string;
+  ipAddress : string = "http://localhost";
 
   constructor(private http : HttpClient, private router : Router ){ }
 
   
   empSignIn(value:any){
-    this.http.post("http://localhost:9090/empSignIn", value, ).
+    this.http.post(this.ipAddress+":9090/empSignIn", value, ).
     subscribe(result => {
-      console.log("result "+result)
       this.router.navigate(["empDash"])
     }, err => {
       console.log("err "+ err.message)

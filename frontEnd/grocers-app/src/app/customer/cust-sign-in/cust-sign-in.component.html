@@ -1,0 +1,26 @@
+
+<div class="container">
+    <app-sign-up></app-sign-up>
+    <div class="floatRight">
+       <a routerLink="../init">Back</a>
+     </div>
+     <h2>Customer Sign in</h2>
+     
+         <form id="form" [formGroup]="signInInfo" (ngSubmit)="signIn()" >
+             <div class="row mb-3">
+                 <label  class="col-sm-2 col-form-label">Username: </label>
+                 <div class="col-sm-10">
+                   <input type="text" class="form-control" formControlName="user" placeholder="Enter username">
+                 </div>
+               </div>
+               <div class="row mb-3">
+                 <label for="inputPassword3" class="col-sm-2 col-form-label">Password: </label>
+                 <div class="col-sm-10">
+                   <input type="password" class="form-control" formControlName="pass" placeholder="Enter password">
+                 </div>
+               </div>
+                 <input type="submit" value="Sign in" class="btn btn-outline-primary">
+                 <input type="reset" value= "Reset" class="btn btn-outline-primary">
+         </form>
+         <div class="center red">{{message}}</div>  
+     </div> 

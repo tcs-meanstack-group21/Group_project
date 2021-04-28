@@ -7,10 +7,9 @@ let empSignIn = (req,res) =>{
     employeeModel.findOne({_id:eid,password:pass} , (err,data) => {
 
         if(!err){
-            console.log(req)
-            res.json(data);
+            res.send(data._id);
         }else{
-            res.json(err.message)
+            res.send(err.message)
         }
     })
 }

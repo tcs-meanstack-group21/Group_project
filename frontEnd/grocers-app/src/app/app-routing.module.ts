@@ -21,12 +21,14 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
 import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
+import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
+import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
-  {path: "", redirectTo : "\init", pathMatch:"full"},
-
+  {path: "\custSignIn", component: CustSignInComponent},
+  {path: "\custDash",component:CustDashoardComponent},
   
   {path: "\addProduct", component: AddProductComponent},
   {path: "retrieveProducts", component: RetrieveProductComponent},
@@ -41,7 +43,9 @@ const routes: Routes = [
   {path:"\deleteEmployee", component: DeleteEmployeeComponent},
   {path:"\empOrd", component: EmployeeOrderStatusComponent}, // Employee - Update Order Status
   {path:"\empLock", component: EmployeeLockedUsersComponent}, // Employee - Locked Users
-  {path:"\empEdit", component: EmployeeEditProfileComponent} // Employee - Edit Profile
+  {path:"\empEdit", component: EmployeeEditProfileComponent}, // Employee - Edit Profile
+
+  {path: "", redirectTo : "\init", pathMatch:"full"}
 ];
 
 @NgModule({
