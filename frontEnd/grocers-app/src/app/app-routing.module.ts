@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
 import { EmpSignInComponent } from './emp-sign-in/emp-sign-in.component';
 
 // Inital & Login Routes
