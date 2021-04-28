@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 
 // Angular Material Imports
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -35,6 +38,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
 import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
 
+// Customer Components
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [ 
@@ -49,6 +54,7 @@ import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.compon
     UpdateProductQuantityComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
+    CartComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
     AdminComponent,
@@ -67,6 +73,9 @@ import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.compon
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDividerModule,
+    MatTableModule,
+    MatTabsModule,
     FormsModule,
     HttpClientModule
   ],
