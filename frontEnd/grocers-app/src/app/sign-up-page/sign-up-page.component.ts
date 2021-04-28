@@ -10,7 +10,8 @@ export class SignUpPageComponent implements OnInit {
 
   signUpInfo = new FormGroup({
     user : new FormControl(),
-    pass : new FormControl()
+    pass : new FormControl(),
+    conf : new FormControl()
   })
 
   
@@ -19,6 +20,6 @@ export class SignUpPageComponent implements OnInit {
   ngOnInit(): void {
   }
   signUp(){
-
+    
   }
 }

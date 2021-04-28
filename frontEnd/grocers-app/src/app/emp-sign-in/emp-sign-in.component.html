@@ -1,9 +1,8 @@
+    
 <div class="container">
-    <h2 class="floatLeft">Sign Up</h2>
-    <hr class="clearFix">
-    <div class="center">
-      <h1>Grocers-Stroe</h1>
-        <form id="form" [formGroup]="signUpInfo" (ngSubmit)="signUp()" >
+   
+    <h2>Empolyee Sign in</h2>
+        <form id="form" [formGroup]="signInInfo" (ngSubmit)="signIn()" >
             <div class="row mb-3">
                 <label  class="col-sm-2 col-form-label">Username: </label>
                 <div class="col-sm-10">
@@ -16,20 +15,8 @@
                   <input type="password" class="form-control" formControlName="pass" placeholder="Enter password">
                 </div>
               </div>
-              <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm: </label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" formControlName="conf" placeholder="Confirm password">
-                </div>
-              </div>
-                <input type="submit" value="Sign Up" class="btn btn-outline-primary">
+                <input type="submit" value="Sign in" class="btn btn-outline-primary">
                 <input type="reset" value= "Reset" class="btn btn-outline-primary">
         </form>
-            Already have the account? Try to <a routerLink="../init">Sign in</a>.
-        
-           
-        
-    </div>
-    
-
-</div>
+        <div class="center red">{{message}}</div>  
+    </div> 

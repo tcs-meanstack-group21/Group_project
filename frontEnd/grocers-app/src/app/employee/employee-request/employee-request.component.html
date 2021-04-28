@@ -1,0 +1,86 @@
+<div class="container">
+    <h1 class="floatLeft intro">Send Product Request</h1>
+
+    <!-- Main NavBar for Employee view -->
+    <div class="floatLeft">
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empDash"><i class="bi bi-house"></i> Dashboard</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empOrd"><i class="bi bi-arrow-counterclockwise"></i> Update/View Order Status</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empLock"><i class="bi bi-lock"></i> Locked Users</a>
+        <a mat-stroked-button color="primary" class="btn" routerLink="../empEdit"><i class="bi bi-pencil-square"></i> Edit Profile</a>
+    </div>
+    
+    <!-- Logout for Employee -->
+    <button class="btn floatRight" mat-stroked-button color="primary"><i class="bi bi-box-arrow-right"></i> Logout</button>
+        
+    <hr class="clearFix">
+
+    <!-- Form to submit product quantities for Employee -->
+    <div class="center">
+        
+        <form id="form" [formGroup]="productRequestForm" (ngSubmit)="sendProductRequest()">
+            <div class = "row mb-3">
+
+                <label class="col-sm-2 col-form-label">Product ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="pid">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Updated Quantity</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="qupdate">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Employee ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="uid">
+                </div>
+
+                <input type="submit" value="Submit Request" class="btn btn-outline-primary">
+                <input type="reset" value="Reset" class="btn btn-outline-primary">
+            </div>
+        </form>
+    </div>
+
+    <!-- Display Pending Requests in Table for Employee -->
+    <div class="tableDisplay">
+        <h1>Pending Requests</h1>
+        <table class="table table-striped table-hover table-responsive-lg">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Request #</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Requested Quantity</th>
+                    <th scope="col">Employee Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row">
+                    <td>Request # here</td>
+                    <td>Product SKU</td>
+                    <td>Product name</td>
+                    <td>Product quantity</td>
+                    <td>Product requested update quantity</td>
+                    <td>Requested by</td>
+                </tr>
+                <tr scope="row">
+                    <td>Request # here</td>
+                    <td>Product SKU</td>
+                    <td>Product name</td>
+                    <td>Product quantity</td>
+                    <td>Product requested update quantity</td>
+                    <td>Requested by</td>
+                </tr>
+                <tr scope="row">
+                    <td>Request # here</td>
+                    <td>Product SKU</td>
+                    <td>Product name</td>
+                    <td>Product quantity</td>
+                    <td>Product requested update quantity</td>
+                    <td>Requested by</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
