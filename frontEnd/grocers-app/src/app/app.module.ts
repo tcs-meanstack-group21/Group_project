@@ -1,25 +1,35 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// App, HTTP and Routing Components
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
+
+// Angular Material Imports
+import { MatButtonModule } from '@angular/material/button';
+
+// Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { InitComponent } from './init/init.component';
+
+// Product Components
 import { AddProductComponent } from './add-product/add-product.component';
-import {HttpClientModule} from '@angular/common/http';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
 import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
-import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule } from '@angular/material/button';
-import { EmployeeRequestComponent } from './employee-request/employee-request.component';
+// Employee Components
+import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
 import { EmpSignInComponent } from './emp-sign-in/emp-sign-in.component';
-import {HttpClientModule} from '@angular/common/http';
+import { EmployeeDashboardComponent } from './employee/employee-dashboard/employee-dashboard.component';
+import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
+import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
+import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/employee-edit-profile.component';
+
 
 @NgModule({
   declarations: [ 
@@ -34,6 +44,9 @@ import {HttpClientModule} from '@angular/common/http';
     UpdateProductQuantityComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
+    EmployeeOrderStatusComponent,
+    EmployeeLockedUsersComponent,
+    EmployeeEditProfileComponent,
     EmpSignInComponent
   ],
   imports: [
