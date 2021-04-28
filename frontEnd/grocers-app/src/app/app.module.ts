@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 
 // Angular Material Imports
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -20,7 +23,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
-import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
+import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component';
 
 // Employee Components
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
@@ -29,7 +32,12 @@ import { EmployeeDashboardComponent } from './employee/employee-dashboard/employ
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
 import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/employee-edit-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
+// Customer Components
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [ 
@@ -44,6 +52,10 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     UpdateProductQuantityComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
+    CartComponent,
+    AddEmployeeComponent,
+    DeleteEmployeeComponent,
+    AdminComponent,
     EmployeeOrderStatusComponent,
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
@@ -57,6 +69,10 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDividerModule,
+    MatTableModule,
+    MatTabsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -11,7 +11,7 @@ const getCart = (req, res) => {
             let cartKeys = [...user.cart.keys()];
             ProductModel.find({ '_id': { $in: cartKeys } }, (err2, result) => {
                 if (!err2) {
-                    res.json(result);
+                    res.json({"result": result, "cart": user.cart});
                 }
                 else res.send("Error" + err2);
             })
@@ -44,7 +44,7 @@ const addProductToCart = (req, res) => {
 }
 
 const removeProductFromCart = (req, res) => {
-    const productId = req.body.pid.toString();
+    const productId = req.params.pid.toString();
     const userId = req.params.uid;
     CustomerModel.find({ _id: userId }, (err, data) => {
         if (!err) {
