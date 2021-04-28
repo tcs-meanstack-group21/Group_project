@@ -31,12 +31,15 @@ export class CartComponent implements OnInit {
     console.log("TODO checkout fn")
   }
 
-  addProduct(id: any): void {
-    console.log("TODO add product function")
+  addProduct(pid: any): void {
+    if (this.cart[pid]) this.cart[pid] += 1;
+    else this.cart[pid] = 1;
+    this.custSer.addProductToCart(this.uid, pid, 1).subscribe(data => console.log(data));
   }
 
-  removeProduct(id: any): void {
-    console.log("TODO remove product function")
+  removeProduct(pid: any): void {
+    delete this.cart[pid];
+    this.custSer.removeProductFromCart(this.uid, pid).subscribe(data => console.log(data));
   }
 
 }

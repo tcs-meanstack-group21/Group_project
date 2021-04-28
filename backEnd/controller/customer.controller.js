@@ -44,7 +44,7 @@ const addProductToCart = (req, res) => {
 }
 
 const removeProductFromCart = (req, res) => {
-    const productId = req.body.pid.toString();
+    const productId = req.params.pid.toString();
     const userId = req.params.uid;
     CustomerModel.find({ _id: userId }, (err, data) => {
         if (!err) {
