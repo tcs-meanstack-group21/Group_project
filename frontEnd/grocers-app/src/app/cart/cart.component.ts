@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, ActivatedRoute, ParamMap } from '@angular/router';
 import { CustomerService } from '../customer.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,30 +12,40 @@ export class CartComponent implements OnInit {
 
   uid: string = "0";
 
-  products: Object[] = [{ _id: 1000, price: 1000, name: "Apple", quantity: 10 }];
+  products: Object[] = [];
   storeColumns = ["ID", "Price", "Name", "Add", "Remove"];
 
   cart: any = {};
   cartProducts: any = [];
   cartColumns = ["Quantity", "Price", "Name", "Remove"];
 
-  constructor(private route: ActivatedRoute, private custSer: CustomerService) { }
+  constructor(private route: ActivatedRoute, private custSer: CustomerService, private prodSer: ProductService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.uid = params['uid'];
-      this.custSer.getCart(this.uid).subscribe(data => { this.cart = data.cart; this.cartProducts = data.result })
+      this.custSer.getCart(this.uid).subscribe(data => { this.cart = data.cart; this.cartProducts = data.result });
+      this.prodSer.retrieveProductDetails().subscribe(data => this.products = data);
     })
   }
 
   checkoutUser(): void {
-    console.log("TODO checkout fn")
+    this.custSer.checkout(this.uid).subscribe(data => console.log(data));
+    this.cartProducts = [];
+    this.cart = {};
   }
 
-  addProduct(pid: any): void {
-    if (this.cart[pid]) this.cart[pid] += 1;
-    else this.cart[pid] = 1;
-    this.custSer.addProductToCart(this.uid, pid, 1).subscribe(data => console.log(data));
+  addProduct(product: any): void {
+    if(this.cart[product._id] + 1 > product.quantity) { //prevent user from taking more than available
+      return;
+    }
+    if (this.cart[product._id]) this.cart[product._id] += 1;
+    else {
+      this.cartProducts.push(product);
+      console.log(this.cartProducts)
+      this.cart[product._id] = 1;
+    }
+    this.custSer.addProductToCart(this.uid, product._id, 1).subscribe(data => console.log(data));
   }
 
   removeProduct(pid: any): void {

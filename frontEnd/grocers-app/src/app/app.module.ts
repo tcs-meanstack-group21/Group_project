@@ -38,6 +38,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 // Customer Components
 import { CartComponent } from './cart/cart.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 
 @NgModule({
   declarations: [ 
@@ -59,7 +60,8 @@ import { CartComponent } from './cart/cart.component';
     EmployeeOrderStatusComponent,
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
-    EmpSignInComponent
+    EmpSignInComponent,
+    RaiseTicketComponent
   ],
   imports: [
     BrowserModule,
