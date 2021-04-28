@@ -24,6 +24,9 @@ import { EmployeeRequestComponent } from './employee/employee-request/employee-r
 
 //Customer Routes
 import { CartComponent } from './cart/cart.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { AdminComponent } from './admin/admin.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
@@ -45,7 +48,10 @@ const routes: Routes = [
   {path:"\deleteEmployee", component: DeleteEmployeeComponent},
   {path:"\empOrd", component: EmployeeOrderStatusComponent}, // Employee - Update Order Status
   {path:"\empLock", component: EmployeeLockedUsersComponent}, // Employee - Locked Users
-  {path:"\empEdit", component: EmployeeEditProfileComponent} // Employee - Edit Profile
+  {path:"\empEdit", component: EmployeeEditProfileComponent}, // Employee - Edit Profile
+  {path:"\adminHome", component: AdminComponent},
+  {path:"\adminSignIn", component: AdminSignInComponent},
+  {path:"viewRequests", component: ViewRequestsComponent}
 ];
 
 @NgModule({
