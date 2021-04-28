@@ -18,7 +18,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { InitComponent } from './init/init.component';
 
-=======
 // Product Components
 import { AddProductComponent } from './add-product/add-product.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
@@ -70,6 +69,9 @@ import { CartComponent } from './cart/cart.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDividerModule,
+    MatTableModule,
+    MatTabsModule,
     FormsModule,
     HttpClientModule
   ],
