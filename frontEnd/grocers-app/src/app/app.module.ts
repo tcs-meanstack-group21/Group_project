@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 
 // Angular Material Imports
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { InitComponent } from './init/init.component';
 
+=======
 // Product Components
 import { AddProductComponent } from './add-product/add-product.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
@@ -33,6 +37,8 @@ import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
+// Customer Components
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [ 
@@ -47,6 +53,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     UpdateProductQuantityComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
+    CartComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
     AdminComponent,

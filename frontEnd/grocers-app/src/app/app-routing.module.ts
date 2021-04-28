@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
 import { EmpSignInComponent } from './emp-sign-in/emp-sign-in.component';
 
 // Inital & Login Routes
@@ -22,6 +23,9 @@ import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/e
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
 
+//Customer Routes
+import { CartComponent } from './cart/cart.component';
+
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
@@ -37,6 +41,7 @@ const routes: Routes = [
   {path: "\empSignIn", component : EmpSignInComponent}, // Employee - Sign In
   {path:"\empDash", component: EmployeeDashboardComponent}, // Employee - Dashboard
   {path:"\empReq", component: EmployeeRequestComponent}, // Employee - Send Request
+  {path: ":uid/cart", component: CartComponent},
   {path:"\addEmployee", component: AddEmployeeComponent},
   {path:"\deleteEmployee", component: DeleteEmployeeComponent},
   {path:"\empOrd", component: EmployeeOrderStatusComponent}, // Employee - Update Order Status
