@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class AdminSignInComponent implements OnInit {
 
   msg?:any
 
-  constructor(public adminService:AdminService) { }
+  constructor(public adminService:AdminService, public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +19,17 @@ export class AdminSignInComponent implements OnInit {
   adminSignIn(adminRef:any){
     console.log(adminRef);
     this.adminService.adminSignIn(adminRef)
-      .subscribe((result:string)=>this.msg=result,(error:string)=>this.msg=error);
-      console.log(this.msg)
+      .subscribe((result:string)=>{
+        this.msg=result
+        if(this.msg!=="null"){
+          this.router.navigate(["../adminHome"])
+          console.log("Admin Login Successful")
+        }
+        else{
+          this.msg = "Invalid Login Credentials"
+          console.log(this.msg)
+        }
+      },(error:string)=>this.msg=error);  
   }
   
 }

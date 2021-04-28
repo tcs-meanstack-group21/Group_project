@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRequestsComponent implements OnInit {
 
+  requests?:Array<Request>
   constructor() { }
 
   ngOnInit(): void {
