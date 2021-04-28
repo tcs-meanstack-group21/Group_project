@@ -15,18 +15,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { InitComponent } from './init/init.component';
 
-import { MatButtonModule } from '@angular/material/button';
-import { EmployeeRequestComponent } from './employee-request/employee-request.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { HttpClientModule } from '@angular/common/http';
-import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
-import { AdminComponent } from './admin/admin.component';
 // Product Components
 import { AddProductComponent } from './add-product/add-product.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
-import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
+import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component';
 
 // Employee Components
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
@@ -35,6 +29,9 @@ import { EmployeeDashboardComponent } from './employee/employee-dashboard/employ
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
 import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/employee-edit-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 
 @NgModule({
@@ -52,7 +49,7 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
     EmployeeRequestComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
-    AdminComponent
+    AdminComponent,
     EmployeeOrderStatusComponent,
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
