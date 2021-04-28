@@ -5,6 +5,8 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
 import { InitComponent } from './init/init.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
+import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
@@ -12,7 +14,9 @@ const routes: Routes = [
   {path: "", redirectTo : "\init", pathMatch:"full"},
   {path: "\addProduct", component: AddProductComponent},
   {path: "retrieveProducts", component: RetrieveProductComponent},
-  {path: "\deleteProduct", component: DeleteProductComponent}
+  {path: "\deleteProduct", component: DeleteProductComponent},
+  {path: "updatePrice", component: UpdateProductPriceComponent},
+  {path: "updateQuantity", component: UpdateProductQuantityComponent}
 ];
 
 @NgModule({

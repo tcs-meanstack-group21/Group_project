@@ -39,11 +39,11 @@ let deleteProductByName= (req,res)=> {
 //function to update product price
 let updateProductPrice= (req,res)=> {
     let pid = req.body.pid;
-    let updatedPrice = req.body.price;
+    let updatedPrice = req.body.newPrice;
     ProductModel.updateOne({_id:pid},{$set:{price:updatedPrice}},(err,result)=> {
         if(!err){
             if(result.nModified>0){
-                    res.send("Updated Product Price Succesfully!")
+                    res.send("Updated Product Price Successfully!")
             }else {
                     res.send("Unable to Update Product Price!");
             }
@@ -57,11 +57,11 @@ let updateProductPrice= (req,res)=> {
 //function to update product quantity
 let updateProductQuantity= (req,res)=> {
     let pid = req.body.pid;
-    let updatedQuantity = req.body.quantity;
+    let updatedQuantity = req.body.newQuantity;
     ProductModel.updateOne({_id:pid},{$set:{quantity:updatedQuantity}},(err,result)=> {
         if(!err){
             if(result.nModified>0){
-                    res.send("Updated Product Quantity Succesfully!")
+                    res.send("Updated Product Quantity Successfully!")
             }else {
                     res.send("Unable to Update Product Quantity!");
             }

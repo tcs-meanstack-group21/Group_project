@@ -21,4 +21,12 @@ export class ProductService {
   deleteProductByName(name:any):any{
     return this.http.delete("http://localhost:9090/product/deleteProduct/"+name,{responseType:'text'})
   }
+
+  updateProductPrice(productRef:any):any {
+    return this.http.put("http://localhost:9090/product/updateProductPrice",productRef, {responseType:'text'})
+  }
+
+  updateProductQuantity(productRef:any):any {
+    return this.http.put("http://localhost:9090/product/updateProductQuantity",productRef, {responseType:'text'})
+  }
 }

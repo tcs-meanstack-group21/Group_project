@@ -10,7 +10,9 @@ import { InitComponent } from './init/init.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
-import { DeleteProductComponent } from './delete-product/delete-product.component'
+import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { UpdateProductPriceComponent } from './update-product-price/update-product-price.component';
+import { UpdateProductQuantityComponent } from './update-product-quantity/update-product-quantity.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
     InitComponent,
     AddProductComponent,
     RetrieveProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    UpdateProductPriceComponent,
+    UpdateProductQuantityComponent
   ],
   imports: [
     BrowserModule,
