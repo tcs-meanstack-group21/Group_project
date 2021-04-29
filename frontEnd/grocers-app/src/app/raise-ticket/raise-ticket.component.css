@@ -1,0 +1,28 @@
+bh1 {
+    color: blueviolet;
+  }
+  .floatLeft {
+    float: left;
+  }
+  .floatRight {
+    float: right;
+  }
+  .clearFix {
+    clear: both;
+  }
+  .center {
+    text-align: center;
+  }
+  .red {
+    color: red;
+  }
+  #form {
+    padding: 50px;
+    max-width: 50%;
+    margin: 0 auto;
+    border: black 1px solid;
+  }
+  .btn {
+    margin-right: 50px;
+    margin-top: 20px;
+  }

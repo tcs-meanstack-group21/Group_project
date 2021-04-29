@@ -14,18 +14,20 @@ const raiseTicket = (req, res) => {
     const userId = req.body.uid;
     const ticketBody = req.body.ticketBody;
     CustomerModel.findById(userId, (err1, user) => {
-        if (!err1 && user.ticket == null) {
-            TicketModel.create({ customer: userId, body: ticketBody }, (err2, ticketData) => {
-                if (!err2) {
-                    CustomerModel.findByIdAndUpdate(userId, {ticket: ticketData}, { useFindAndModify: false }, (err3, data) => {
-                        if(!err3) {
-                            res.send("Ticket Successfully raised");
-                        } else res.send("Could not update customer");
-                    })
-                }
-            })
-        } else {
-            res.send("Error generated: " + err1);
+        if (user) {
+            if (!err1 && user.ticket == null && user.lockedStatus == true) {
+                TicketModel.create({ customer: userId, body: ticketBody }, (err2, ticketData) => {
+                    if (!err2) {
+                        CustomerModel.findByIdAndUpdate(userId, { ticket: ticketData }, { useFindAndModify: false }, (err3, data) => {
+                            if (!err3) {
+                                res.send("Ticket Successfully raised");
+                            } else res.send("Could not update customer");
+                        })
+                    }
+                })
+            } else {
+                res.send("Error generated at find user: " + err1);
+            }
         }
     })
 }

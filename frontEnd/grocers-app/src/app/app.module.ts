@@ -36,6 +36,7 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
 import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DailyReportsComponent } from './daily-reports/daily-reports.component';
 import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
 import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
 
@@ -70,6 +71,7 @@ import { CustOrderStatusComponent } from './customer/cust-order-status/cust-orde
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
     EmpSignInComponent,
+    DailyReportsComponent,
     CustDashoardComponent,
     CustSignInComponent,
     AddFundsComponent,
@@ -91,7 +93,6 @@ import { CustOrderStatusComponent } from './customer/cust-order-status/cust-orde
     MatTableModule,
     MatTabsModule,
     MatFormFieldModule,
-    FormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class UpdateProductPriceComponent implements OnInit {
 
-  products?:Array<Product>
+  products:Array<Product> = [];
   updateMsg?:string;
 
   constructor(public proService:ProductService) { }
