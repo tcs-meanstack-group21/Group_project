@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class DeleteProductComponent implements OnInit, OnChanges {
 
-  products?: Array<Product>
+  products: Array<Product> = [];
   deleteMsg?:string;
 
   constructor(public proService:ProductService) { }

@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const EmployeeSchema = new Schema({
     _id: Number,
-    password : {type : String, required : true},
-    lastLogTime : {type : Date}
+    password :  String,
+    lastLogTime :  Date
 });
 
 const EmployeeModel = mongoose.model("Employee", EmployeeSchema, "employees");

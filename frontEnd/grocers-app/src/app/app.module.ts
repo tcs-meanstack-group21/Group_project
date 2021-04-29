@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -35,9 +36,15 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
 import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
+import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
 
 // Customer Components
 import { CartComponent } from './cart/cart.component';
+import { AddFundsComponent } from './customer/add-funds/add-funds.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+
 import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
@@ -62,6 +69,11 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
     EmpSignInComponent,
+    CustDashoardComponent,
+    CustSignInComponent,
+    AddFundsComponent,
+    EditProfileComponent,
+    RaiseTicketComponent,
     AdminSignInComponent,
     ViewRequestsComponent
   ],
@@ -76,7 +88,7 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     MatDividerModule,
     MatTableModule,
     MatTabsModule,
-    FormsModule,
+    MatFormFieldModule,
     HttpClientModule
   ],
   providers: [],
