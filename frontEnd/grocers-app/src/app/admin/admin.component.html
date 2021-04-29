@@ -1,13 +1,25 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class = "container-fluid"> 
 <div>
     <h2>Welcome Admin</h2>
     <div class="right">
-     <mat-tab-group> 
+     <mat-tab-group (selectedTabChange)="onTabChanged($event);"> 
      <mat-tab label="Add Employee"><app-add-employee></app-add-employee></mat-tab>
      <mat-tab label="Delete Employee"><app-delete-employee></app-delete-employee></mat-tab>
-     <mat-tab label="Add Products"><app-add-product></app-add-product></mat-tab>
-     <mat-tab label="Update Product Price" ><app-update-product-price></app-update-product-price></mat-tab>
-     <mat-tab label="Update Product Quantity"><app-update-product-quantity></app-update-product-quantity></mat-tab>
-     <mat-tab label="Delete Product"><app-delete-product></app-delete-product></mat-tab>
+     <mat-tab label="Add Products"><app-add-product (updateProducts)="updateProducts()"></app-add-product><hr/>
+      <app-retrieve-product [products]="products"></app-retrieve-product>
+     </mat-tab>
+     <mat-tab label="Update Product Price"><app-update-product-price (updateProducts)="updateProducts()"></app-update-product-price><hr/>
+      <app-retrieve-product [products]="products"></app-retrieve-product>
+     </mat-tab>
+     <mat-tab label="Update Product Quantity"><app-update-product-quantity (updateProducts)="updateProducts()"></app-update-product-quantity><hr/>
+      <app-retrieve-product [products]="products"></app-retrieve-product>
+     </mat-tab>
+     <mat-tab label="Delete Product"><app-delete-product (updateProducts)="updateProducts()"></app-delete-product><hr/>
+      <app-retrieve-product [products]="products"></app-retrieve-product>
+    </mat-tab>
      <mat-tab label="View Requests"><app-view-requests></app-view-requests></mat-tab>
     </mat-tab-group>
     </div>
@@ -15,3 +27,4 @@
     <router-outlet>
     </router-outlet>
   </div>
+</body>

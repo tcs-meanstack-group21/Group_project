@@ -84,6 +84,10 @@ const checkout = (req, res) => {
                             res.send("Could not create order: " + err3);
                             return;
                         }
+                        const tempCart = user.cart;
+                        for (product of products) {
+                            ProductModel.findByIdAndUpdate(product._id, {quantity: product.quantity - tempCart.get(product._id.toString())}, { useFindAndModify: false }, (errp, prod) => console.log(errp))
+                        }
                         CustomerModel.findByIdAndUpdate(userId, { order: order._id, funds: user.funds - cartCost, cart: {} }, { useFindAndModify: false }, (err4, cust) => {
                             if (!err4) {
                                 res.send("Order successfully placed");
@@ -99,29 +103,42 @@ const checkout = (req, res) => {
     })
 }
 
-const addFunds = (req, res) => {
-    const cid = req.body.uid;
-    const cfunds = parseFloat(req.body.funds);
-
-    CustomerModel.updateOne({ _id: cid }, { $set: { funds: cfunds } }, (err, result) => {
-        if (!err) {
-            if (result.nModified > 0) {
-                res.send("Funds updated succesfully")
-            } else {
-                res.send("User is not available");
+const addFunds = (req,res) =>{
+    const id = req.body.id;
+    const cfunds = parseFloat(req.body.amount);
+    let totalAmount;
+    CustomerModel.find({_id:id},(err,data)=> {
+        if(!err){
+            if(data[0].funds ==null){
+                totalAmount = cfunds
+            }else{
+                totalAmount = parseFloat(data[0].funds) + cfunds
             }
-        } else {
-            res.send("Error generated " + err.message);
+            CustomerModel.updateOne({_id : id}, {$set: {funds : totalAmount}}, (err,result) =>{
+                if(!err){
+                    if(result.nModified>0){
+                            res.send("Funds updated succesfully")
+                    }else {
+                        console.log("y")
+                            res.send("User is not available/ Same amount");
+                    }
+                }else {
+                    res.send("Error generated "+err.message);
+                }
+            })
+        }else{
+            res.send("No user found")
         }
     })
+    
 }
 
-const getFunds = (req, res) => {
-    const cid = req.params.uid;
-    CustomerModel.find({ _id: cid }, (err, data) => {
-        if (!err) {
-            res.json(data);
-        } else {
+const getFunds = (req,res) =>{
+    const id = req.body.id;
+    CustomerModel.find({_id:id},(err,data)=> {
+        if(!err){
+            res.json(data[0].funds); 
+        }else{
             res.send("No user found")
         }
     })
