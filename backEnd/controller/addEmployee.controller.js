@@ -39,4 +39,28 @@ const deleteEmployeeById= (req,res)=> {
 
 }
 
-module.exports={addEmployeeInfo,deleteEmployeeById}
+
+let updateEmpPass = (req, res) => {
+    let employee = req.body.uid;
+    let currentP = req.body.cpass;
+    let newP = req.body.npass;
+    console.log(employee);
+    console.log(newP);
+    console.log(currentP);
+
+    EmployeeModel.updateOne({_id: employee, password: currentP}, {$set:{password: newP}},(error,data) => {
+        if(!error){
+            if(data.nModified>0){
+                    res.send("Password has successfully been updated.")
+            }else {
+                    res.send("Unable to update password. Please confirm that your current creditials are correct.");
+                    console.log(`no record modified`)
+            }
+        }else {
+            res.send("Error generated "+error);
+            console.log(`Could not find employee to update`)
+        }
+    })
+}
+
+module.exports={addEmployeeInfo,deleteEmployeeById, updateEmpPass}
