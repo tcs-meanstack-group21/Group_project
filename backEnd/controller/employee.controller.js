@@ -1,23 +1,25 @@
+const EmployeeModel = require("../model/employee.model");
 
-const employeeModel = require("../model/employee.model");
-const EmployeeModel = require("../model/employee.model.js");
+// Employee Sign In 
 let empSignIn = (req,res) =>{
-    const email = eval(req.body.cemail);
+    const email = eval(req.body.email);
     const pass = req.body.pass;
-    employeeModel.findOne({UserEmail:email,password:pass} , (err,data) => {
+    EmployeeModel.findOne({emailId: email, password:pass} , (err,data) => {
         if(!err){
-            res.json(data);
+            res.redirect('/empDash')
+            // res.json(data);
         }else{
             res.send(err.message)
         }
     })
 }
 
+// Employee SignUp
 let empSignUp = (req,res) =>{
     const email = eval(req.body.email);
     const pass = req.body.pass;
     const employee = new employeeModel({
-    UserEmail: email,
+    emailId: email,
     password : pass,
 });
 
@@ -31,27 +33,48 @@ employee.save((err,result)=> {
 })
 }
 
-let addEmployeeInfo = (req,res)=> {
-   
-    let employee = new EmployeeModel({
+// Employee Update Password
+let updateEmpPass = (req, res) => {
+    let employee = req.body.uid;
+    let currentP = req.body.cpass;
+    let newP = req.body.npass;
+    EmployeeModel.updateOne({_id: employee, password: currentP}, {$set:{password: newP}},(error,data) => {
         
-        firstname:req.body.firstname,
-        lastname:req.body.lastname,
-        emailid:req.body.emailid,
+        if(!error){
+            if(data.nModified>0){
+                    res.send(`Password has successfully been updated for employee ID# ${employee}`)
+            }else {
+                    res.send("Unable to update password. Please confirm that your current creditials are correct.");
+            }
+        }else {
+            res.send("Error generated ===> "+error);
+            console.log(`Could not find employee to update`)
+        }
+    })
+}
 
+// Admin Add Employee
+let addEmployeeInfo = (req,res)=> {
+    let employee = new EmployeeModel({
+        firstName: req.body.firstname,
+        lastName: req.body.lastname,
+        emailId: req.body.emailid,
     });
-
+    console.log("Employee being added: ", employee);
     employee.save((err,result)=> {
         if(!err){
-            res.send("Record stored successfully ")
+            res.send("Employee has successfully been created. Password is default.\nPlease update password upon initial login.")
+            console.log("Employee added")
             //res.json({"msg":"Record stored successfully"})
         }else {
-            res.send("Record didn't store ");
+            res.send("Employee not created. Please ensure all fields are completed and try again.");
+            console.log("Employee not added")
         }
     })
 
 }
 
+// Admin Delete Employee
 const deleteEmployeeById= (req,res)=> {
     let pid = req.params.pid;
     EmployeeModel.deleteOne({_id:pid},(err,result)=> {
@@ -65,7 +88,6 @@ const deleteEmployeeById= (req,res)=> {
             res.send("Error generated "+err);
         }
     })
-
 }
 
-module.exports = {empSignIn,empSignUp,addEmployeeInfo,deleteEmployeeById}
+module.exports = {empSignIn, empSignUp, addEmployeeInfo, deleteEmployeeById, updateEmpPass}
