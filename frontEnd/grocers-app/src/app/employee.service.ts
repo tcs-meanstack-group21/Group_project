@@ -25,4 +25,9 @@ export class EmployeeService {
     })
   }
 
+  updateProfile( profileRef:any ):any {
+    return this.http.put("http://localhost:9090/employee/empEdit", profileRef, { responseType: 'text' })
+  }
+
+
 }

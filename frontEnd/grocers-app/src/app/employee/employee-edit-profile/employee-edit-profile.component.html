@@ -11,9 +11,34 @@
     <button class="btn floatRight" mat-stroked-button color="primary"><i class="bi bi-box-arrow-right"></i> Logout</button>
         
     <hr class="clearFix">
-
+     
+    <!-- Form to Update Employee Profile for Employee -->
     <div class="center">
-       <p>Edit password here</p>
-       <p>update password form for employee</p>
+        <form id="form" [formGroup]="editProfileForm" (ngSubmit)="sendProfile(editProfileForm.value)">
+            <div class = "row mb-3">
+
+                <label class="col-sm-2 col-form-label">Employee ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="uid">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Current Password</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="cpass">
+                </div>
+
+                <label class="col-sm-2 col-form-label">New Password</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="npass">
+                </div>
+
+                <input type="submit" value="Submit Request" class="btn btn-outline-primary">
+                <input type="reset" value="Reset" class="btn btn-outline-primary">
+            </div>
+            <div *ngIf="appearAlert" class="alert alert-primary"  role="alert">
+               {{submitMsg}}
+              </div>
+        </form>
     </div>
+
 </div>

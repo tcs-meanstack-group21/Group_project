@@ -31,7 +31,7 @@ export class EmployeeRequestComponent implements OnInit {
 
     this.reqService.submitRequest(requestRef)
     .subscribe( (result:string)=> this.submitMsg = result, (error:string)=> this.submitMsg = error );
-    this.appearAlert= true;
+    this.appearAlert = true;
   }
 
   refreshTable(){
