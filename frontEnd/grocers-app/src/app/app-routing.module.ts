@@ -32,6 +32,7 @@ import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewRequestsComponent } from './view-requests/view-requests.component';
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+import { CustOrderStatusComponent } from './customer/cust-order-status/cust-order-status.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: "\custDash",component:CustDashoardComponent},
   {path: "\addFunds", component:AddFundsComponent},
   {path: "\editProfile", component:EditProfileComponent},
+  {path: "\orderStatus", component: CustOrderStatusComponent},
 
   {path: "", redirectTo : "\init", pathMatch:"full"},
   
