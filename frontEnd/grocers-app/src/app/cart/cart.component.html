@@ -15,7 +15,7 @@
                     <tbody>
                         <tr *ngFor="let product of products">
                             <td>{{product.name}}</td>
-                            <td>{{product.price}}</td>
+                            <td>${{product.price}}</td>
                             <td><button mat-raised-button (click)="addProduct(product)">Add Item</button></td>
                             <td><button mat-raised-button (click)="removeProduct(product._id)">Remove Item</button></td>
                         </tr>
@@ -36,10 +36,15 @@
                     <tbody>
                         <tr *ngFor="let product of cartProducts">
                             <td>{{product.name}}</td>
-                            <td>{{product.price}}</td>
+                            <td>${{product.price}}</td>
                             <td>{{cart[product._id]}}</td>
-                            <td>{{cart[product._id] * product.price}}</td>
+                            <td>${{cart[product._id] * product.price}}</td>
                             <td><button mat-raised-button (click)="removeProduct(product._id)">Remove Item</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Cart Total</td>
+                            <td>${{getTotalPrice()}}</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
