@@ -17,8 +17,7 @@ h1 {
   padding: 50px;
   max-width: 50%;
   margin: 0 auto;
-  border: blue 1px solid;
-  border-radius: 30px;
+  border: black 1px solid;
 }
 .btn {
   margin-right: 50px;

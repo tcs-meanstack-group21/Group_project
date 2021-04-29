@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 
 // Angular Material Imports
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -33,7 +37,17 @@ import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DailyReportsComponent } from './daily-reports/daily-reports.component';
+import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
+import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
 
+// Customer Components
+import { CartComponent } from './cart/cart.component';
+import { AddFundsComponent } from './customer/add-funds/add-funds.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
 @NgModule({
   declarations: [ 
@@ -48,6 +62,7 @@ import { DailyReportsComponent } from './daily-reports/daily-reports.component';
     UpdateProductQuantityComponent,
     EmployeeDashboardComponent,
     EmployeeRequestComponent,
+    CartComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
     AdminComponent,
@@ -55,7 +70,14 @@ import { DailyReportsComponent } from './daily-reports/daily-reports.component';
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
     EmpSignInComponent,
-    DailyReportsComponent
+    DailyReportsComponent,
+    CustDashoardComponent,
+    CustSignInComponent,
+    AddFundsComponent,
+    EditProfileComponent,
+    RaiseTicketComponent,
+    AdminSignInComponent,
+    ViewRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +87,10 @@ import { DailyReportsComponent } from './daily-reports/daily-reports.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    FormsModule,
+    MatDividerModule,
+    MatTableModule,
+    MatTabsModule,
+    MatFormFieldModule,
     HttpClientModule
   ],
   providers: [],

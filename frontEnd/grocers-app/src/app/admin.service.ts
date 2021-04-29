@@ -8,6 +8,11 @@ import { order } from './order.model';
 })
 export class AdminService {
   constructor(public http:HttpClient) { }
+
+    adminSignIn(adminRef:any):any {
+      return this.http.post("http://localhost:9090/admin/adminSignIn",adminRef,{responseType:"text"})
+    }
+
     addEmployeeInfo(employeeRef:any){
       this.http.post("http://localhost:9090/employee/addEmployeeInfo",employeeRef,{responseType:"text"}).
       subscribe(result=>console.log(result),error=>console.log(error));

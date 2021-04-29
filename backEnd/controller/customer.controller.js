@@ -11,7 +11,7 @@ const getCart = (req, res) => {
             let cartKeys = [...user.cart.keys()];
             ProductModel.find({ '_id': { $in: cartKeys } }, (err2, result) => {
                 if (!err2) {
-                    res.json(result);
+                    res.json({"result": result, "cart": user.cart});
                 }
                 else res.send("Error" + err2);
             })
@@ -44,7 +44,7 @@ const addProductToCart = (req, res) => {
 }
 
 const removeProductFromCart = (req, res) => {
-    const productId = req.body.pid.toString();
+    const productId = req.params.pid.toString();
     const userId = req.params.uid;
     CustomerModel.find({ _id: userId }, (err, data) => {
         if (!err) {
@@ -76,7 +76,8 @@ const checkout = (req, res) => {
                         res.send("Insufficient funds");
                         return;
                     }
-                    OrderModel.create({ _id: user._id, customer: user._id, cart: user.cart }, (err3, order) => {
+                    const newId = Math.round(Math.random() * Number.MAX_SAFE_INTEGER)
+                    OrderModel.create({ _id: newId, customer: user._id, cart: user.cart }, (err3, order) => {
                         if (err3) {
                             res.send("Could not create order: " + err3);
                             return;
@@ -123,6 +124,36 @@ const getFunds = (req,res) =>{
         }
     })
 }
+let custSignIn = (req,res) =>{
+    const cid = eval(req.body.user);
+    const pass = req.body.pass;
+    CustomerModel.findOne({_id:cid,password:pass} , (err,data) => {
+
+        if(!err){
+            res.json(data);
+        }else{
+            res.json(err.message)
+        }
+    })
+}
+let custSignUp = (req,res) =>{
+    const cid = eval(req.body.user);
+    const pass = req.body.pass;
+const customer = new CustomerModel({
+    _id: cid,
+    password : pass,
+});
+
+customer.save((err,result)=> {
+    if(!err){
+        console.log(cid+","+pass)
+        res.send("Record stored successfully ")
+        //res.json({"msg":"Record stored successfully"})
+    }else {
+        res.send("Record didn't store ");
+    }
+})
+}
 
 
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds}
+module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds, custSignIn, custSignUp}
