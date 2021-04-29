@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -74,6 +75,7 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
     MatDividerModule,
     MatTableModule,
     MatTabsModule,
+    MatFormFieldModule,
     FormsModule,
     HttpClientModule
   ],

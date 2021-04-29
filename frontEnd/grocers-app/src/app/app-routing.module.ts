@@ -47,7 +47,7 @@ const routes: Routes = [
   {path:"\empLock", component: EmployeeLockedUsersComponent}, // Employee - Locked Users
   {path:"\empEdit", component: EmployeeEditProfileComponent}, // Employee - Edit Profile
 
-  {path: ":uid/cart", component: CartComponent},
+  {path: "customer/cart", component: CartComponent},
   {path: "ticket", component: RaiseTicketComponent}
 ];
 

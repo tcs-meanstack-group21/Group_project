@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class CartComponent implements OnInit {
 
-  uid: string = "0";
+  uid: string = "-1";
 
   products: Object[] = [];
   storeColumns = ["ID", "Price", "Name", "Add", "Remove"];
@@ -22,11 +22,9 @@ export class CartComponent implements OnInit {
   constructor(private route: ActivatedRoute, private custSer: CustomerService, private prodSer: ProductService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.uid = params['uid'];
+      this.uid = sessionStorage.getItem("id") || "-1";
       this.custSer.getCart(this.uid).subscribe(data => { this.cart = data.cart; this.cartProducts = data.result });
       this.prodSer.retrieveProductDetails().subscribe(data => this.products = data);
-    })
   }
 
   checkoutUser(): void {
