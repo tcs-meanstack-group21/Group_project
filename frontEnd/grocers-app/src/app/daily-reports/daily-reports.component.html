@@ -1,0 +1,6 @@
+<div>
+    Enter Date :<input type="text" #dateRef/><br/>
+    <input type="button" value="search by date"
+    (click)="searchDetails(dateRef.value)"/><br/>
+    {{resultMsg}}
+</div>
