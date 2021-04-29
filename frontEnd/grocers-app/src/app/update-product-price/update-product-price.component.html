@@ -1,11 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Update Product Price</title>
+  </head>
+  <body class = "container-fluid">
+    <h2 style = "text-align: center;">Update Product Price</h2>
+    <br/>
+
 <div>
     <form #productRef="ngForm" (ngSubmit)="updateProductPrice(productRef.value)">    
-        <label>Product Id</label>
-        <input type="text" name="pid" ngModel><br/>
-        <label>New Price</label>
-        <input type="text" name="newPrice" ngModel><br/>
-        <input type="submit" value="Update Price"/>
-        <input type="reset" value="Reset"/><br/>
+        <div class="form-row">
+            <div class="col-md-4 mb-3"> 
+                <label>Product Id</label>
+                <input type="text" class="form-control" name="pid" ngModel>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>New Price</label>
+                <input type="text" class="form-control" name="newPrice" ngModel>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-primary" type="submit">Update Price</button>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-primary" type="reset">Reset</button>
+            </div>
+        </div>
     </form>
     {{updateMsg}}
 </div>
+<hr/>
+<app-retrieve-product [products]="products"></app-retrieve-product>

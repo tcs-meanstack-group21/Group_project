@@ -41,6 +41,9 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { CartComponent } from './cart/cart.component';
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
+
 @NgModule({
   declarations: [ 
     AppComponent,
@@ -62,7 +65,9 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
     EmpSignInComponent,
-    RaiseTicketComponent
+    RaiseTicketComponent,
+    AdminSignInComponent,
+    ViewRequestsComponent
   ],
   imports: [
     BrowserModule,
