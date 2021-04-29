@@ -10,7 +10,7 @@ import { CustomerService } from 'src/app/customer.service';
 export class CustSignInComponent implements OnInit {
 
 
-  signInInfo = new FormGroup({
+  custsignInInfo = new FormGroup({
     user : new FormControl(),
     pass : new FormControl()
   })
@@ -22,8 +22,9 @@ export class CustSignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async signIn(){
-    await this.custServer.custSignIn(this.signInInfo.value);
+   signIn(){
+    
+     this.custServer.custSignIn(this.custsignInInfo.value);
      this.message = "Not correct username and password"
   }
 

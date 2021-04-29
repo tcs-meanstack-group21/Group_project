@@ -20,8 +20,8 @@ export class EmpSignInComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  async signIn(){ 
-    await this.empServer.empSignIn(this.signInInfo.value);
+   signIn(){ 
+     this.empServer.empSignIn(this.signInInfo.value);
      this.message = "Not correct username and password"
   }   
 

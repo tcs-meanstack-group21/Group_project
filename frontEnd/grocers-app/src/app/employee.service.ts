@@ -13,7 +13,7 @@ export class EmployeeService {
 
   
   empSignIn(value:any){
-    this.http.post(this.ipAddress+":9090/empSignIn", value, ).
+    this.http.get(`${this.ipAddress}:9090/empSignIn`, value ).
     subscribe(result => {
       this.router.navigate(["empDash"])
     }, err => {

@@ -13,7 +13,7 @@ export class CustomerService {
   constructor(private http : HttpClient, private router : Router ) { }
 
   custSignIn(value : any){
-    this.http.post(this.ipAddress+":9090/customer/custSignIn", value, ).
+    this.http.get(this.ipAddress+":9090/customer/custSignIn", value, ).
     subscribe(result => {
       this.router.navigate(["custDash"])
     }, err => {
@@ -21,9 +21,10 @@ export class CustomerService {
     })
   }
   custSignUp(value : any){
-    this.http.post(this.ipAddress+":9090/customer/custSignUp", value, ).
+    console.log(JSON.stringify(value))
+    this.http.post(this.ipAddress+":9090/customer/custSignUp", JSON.stringify(value), ).
     subscribe(result => {
-      
+      console.log(result)
     }, err => {
       console.log("err "+ err.message)
     })

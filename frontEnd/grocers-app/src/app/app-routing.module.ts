@@ -26,13 +26,17 @@ import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.co
 
 //Customer Routes
 import { CartComponent } from './cart/cart.component';
+import { AddFundsComponent } from './customer/add-funds/add-funds.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
   {path: "\custSignIn", component: CustSignInComponent},
   {path: "\custDash",component:CustDashoardComponent},
-  
+  {path: "\addFunds", component:AddFundsComponent},
+  {path: "\editProfile", component:EditProfileComponent},
+
   {path: "\addProduct", component: AddProductComponent},
   {path: "retrieveProducts", component: RetrieveProductComponent},
   {path: "\deleteProduct", component: DeleteProductComponent},

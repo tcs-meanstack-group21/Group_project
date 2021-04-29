@@ -124,7 +124,7 @@ const getFunds = (req,res) =>{
     })
 }
 let custSignIn = (req,res) =>{
-    const cid = req.body.cid;
+    const cid = eval(req.body.user);
     const pass = req.body.pass;
     CustomerModel.findOne({_id:cid,password:pass} , (err,data) => {
 
@@ -135,6 +135,24 @@ let custSignIn = (req,res) =>{
         }
     })
 }
+let custSignUp = (req,res) =>{
+    const cid = eval(req.body.user);
+    const pass = req.body.pass;
+const customer = new CustomerModel({
+    _id: cid,
+    password : pass,
+});
+
+customer.save((err,result)=> {
+    if(!err){
+        console.log(cid+","+pass)
+        res.send("Record stored successfully ")
+        //res.json({"msg":"Record stored successfully"})
+    }else {
+        res.send("Record didn't store ");
+    }
+})
+}
 
 
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds, custSignIn}
+module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds, custSignIn, custSignUp}

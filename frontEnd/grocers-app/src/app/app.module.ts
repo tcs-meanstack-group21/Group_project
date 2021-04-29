@@ -40,6 +40,8 @@ import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.compon
 
 // Customer Components
 import { CartComponent } from './cart/cart.component';
+import { AddFundsComponent } from './customer/add-funds/add-funds.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [ 
@@ -63,7 +65,9 @@ import { CartComponent } from './cart/cart.component';
     EmployeeEditProfileComponent,
     EmpSignInComponent,
     CustDashoardComponent,
-    CustSignInComponent
+    CustSignInComponent,
+    AddFundsComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
