@@ -13,13 +13,14 @@ h1 {
 .center {
   text-align: center;
 }
-#form {
-  padding: 50px;
-  max-width: 50%;
-  margin: 0 auto;
-  border: black 1px solid;
-}
 .btn {
   margin-right: 50px;
   margin-top: 20px;
+}
+.intro {
+  padding: 20px;
+}
+.user {
+  font-size: 20px;
+  color: blue;
 }

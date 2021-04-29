@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -15,11 +16,12 @@ export class SignUpPageComponent implements OnInit {
   })
 
   
-  constructor() { }
+  constructor(private custServer : CustomerService) { }
 
   ngOnInit(): void {
   }
   signUp(){
     
+    this.custServer.custSignUp(this.signUpInfo);
   }
 }
