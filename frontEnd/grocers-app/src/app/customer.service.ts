@@ -65,6 +65,6 @@ export class CustomerService {
   }
 
   raiseTicket(value: any) {
-    return this.http.post(this.ipAddress + "/ticket/raiseTicket", value)
+    return this.http.post(this.ipAddress + "/ticket/raiseTicket", value, {responseType: "text"})
   }
 }
