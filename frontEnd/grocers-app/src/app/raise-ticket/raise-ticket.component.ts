@@ -21,7 +21,6 @@ export class RaiseTicketComponent implements OnInit {
   }
 
   sendTicket(): void {
-    console.log("Function call")
     this.custSer.raiseTicket(this.ticketInfo.value).subscribe((data: any) => {
       console.log(data)
       this.route.navigate(["/"])
