@@ -23,12 +23,12 @@ const raiseTicket = (req, res) => {
                                 res.send("Ticket Successfully raised");
                             } else res.send("Could not update customer");
                         })
-                    }
+                    } else res.send("Error generated at create ticket: ")
                 })
             } else {
-                res.send("Error generated at find user: " + err1);
+                res.send("User locked status: " + user.lockedStatus + " " + err1);
             }
-        }
+        } else res.send("No user found");
     })
 }
 
