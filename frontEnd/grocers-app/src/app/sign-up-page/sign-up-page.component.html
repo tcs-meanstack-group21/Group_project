@@ -1,9 +1,45 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+=======
+<div class="container">
+    <h2 class="floatLeft">Sign Up</h2>
+    <hr class="clearFix">
+    <div class="center">
+      <h1>Grocers-Stroe</h1>
+        <form id="form" [formGroup]="signUpInfo" (ngSubmit)="signUp()" >
+            <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label">Email: </label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password: </label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" formControlName="pass" placeholder="Enter password">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm: </label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" formControlName="conf" placeholder="Confirm password">
+                </div>
+              </div>
+                <input type="submit" value="Sign Up" class="btn btn-outline-primary">
+                <input type="reset" value= "Reset" class="btn btn-outline-primary">
+        </form>
+            Already have the account? Try to <a routerLink="../init">Sign in</a>.
+        
+           
+        
+    </div>
+    
+>>>>>>> cdebddf2c43dc4bb424807bca5bc5111cfe12afe
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

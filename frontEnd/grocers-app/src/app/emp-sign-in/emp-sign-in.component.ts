@@ -10,7 +10,7 @@ import { EmployeeService } from '../employee.service';
 export class EmpSignInComponent implements OnInit {
 
   signInInfo = new FormGroup({
-    user : new FormControl(),
+    email : new FormControl(),
     pass : new FormControl()
   })
 
