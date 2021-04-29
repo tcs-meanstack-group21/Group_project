@@ -1,2 +1,24 @@
 <app-cust-dashoard></app-cust-dashoard>
-<p>cust-order-status works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Items</th>
+            <th scope="col">Date Ordered</th>
+            <th scope="col">Date Delivered</th>
+            <th scope="col">Order Status</th>
+            <th scope="col">Remove Order</th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let i of custOrderList">
+                <td>{{i._id}}</td>
+                <td>{{i.dateOrdered}}</td>
+                <td>{{i.dateDelivered}}</td>
+                <td>{{i.orderStatus}}</td>
+                <td><button mat-raised-button (click)="removeOrder(i)">Cancel Order</button></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    
+</div>
