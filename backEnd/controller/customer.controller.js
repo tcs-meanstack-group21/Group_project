@@ -8,13 +8,15 @@ const getCart = (req, res) => {
     CustomerModel.find({ _id: userId }, (err, data) => {
         if (!err) {
             let user = data[0];
-            let cartKeys = [...user.cart.keys()];
-            ProductModel.find({ '_id': { $in: cartKeys } }, (err2, result) => {
-                if (!err2) {
-                    res.json({"result": result, "cart": user.cart});
-                }
-                else res.send("Error" + err2);
-            })
+            if (user) {
+                let cartKeys = [...user.cart.keys()];
+                ProductModel.find({ '_id': { $in: cartKeys } }, (err2, result) => {
+                    if (!err2) {
+                        res.json({ "result": result, "cart": user.cart });
+                    }
+                    else res.send("Error" + err2);
+                })
+            } else res.send("No user found");
         }
     })
 }
@@ -97,63 +99,63 @@ const checkout = (req, res) => {
     })
 }
 
-const addFunds = (req,res) =>{
+const addFunds = (req, res) => {
     const cid = req.body.uid;
     const cfunds = parseFloat(req.body.funds);
 
-    CustomerModel.updateOne({_id : cid}, {$set: {funds : cfunds}}, (err,result) =>{
-        if(!err){
-            if(result.nModified>0){
-                    res.send("Funds updated succesfully")
-            }else {
-                    res.send("User is not available");
+    CustomerModel.updateOne({ _id: cid }, { $set: { funds: cfunds } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                res.send("Funds updated succesfully")
+            } else {
+                res.send("User is not available");
             }
-        }else {
-            res.send("Error generated "+err.message);
+        } else {
+            res.send("Error generated " + err.message);
         }
     })
 }
 
-const getFunds = (req,res) =>{
+const getFunds = (req, res) => {
     const cid = req.params.uid;
-    CustomerModel.find({_id:cid},(err,data)=> {
-        if(!err){
-            res.json(data); 
-        }else{
+    CustomerModel.find({ _id: cid }, (err, data) => {
+        if (!err) {
+            res.json(data);
+        } else {
             res.send("No user found")
         }
     })
 }
-let custSignIn = (req,res) =>{
+let custSignIn = (req, res) => {
     const cid = eval(req.body.user);
     const pass = req.body.pass;
-    CustomerModel.findOne({_id:cid,password:pass} , (err,data) => {
+    CustomerModel.findOne({ _id: cid, password: pass }, (err, data) => {
 
-        if(!err){
+        if (!err) {
             res.json(data);
-        }else{
+        } else {
             res.json(err.message)
         }
     })
 }
-let custSignUp = (req,res) =>{
+let custSignUp = (req, res) => {
     const cid = eval(req.body.user);
     const pass = req.body.pass;
-const customer = new CustomerModel({
-    _id: cid,
-    password : pass,
-});
+    const customer = new CustomerModel({
+        _id: cid,
+        password: pass,
+    });
 
-customer.save((err,result)=> {
-    if(!err){
-        console.log(cid+","+pass)
-        res.send("Record stored successfully ")
-        //res.json({"msg":"Record stored successfully"})
-    }else {
-        res.send("Record didn't store ");
-    }
-})
+    customer.save((err, result) => {
+        if (!err) {
+            console.log(cid + "," + pass)
+            res.send("Record stored successfully ")
+            //res.json({"msg":"Record stored successfully"})
+        } else {
+            res.send("Record didn't store ");
+        }
+    })
 }
 
 
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds, custSignIn, custSignUp}
+module.exports = { getCart, addProductToCart, removeProductFromCart, checkout, addFunds, getFunds, custSignIn, custSignUp }

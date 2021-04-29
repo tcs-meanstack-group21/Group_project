@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, ActivatedRoute, ParamMap } from '@angular/router';
 import { CustomerService } from '../customer.service';
+import { Product } from '../model.product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -12,11 +13,11 @@ export class CartComponent implements OnInit {
 
   uid: string = "-1";
 
-  products: Object[] = [];
+  products: Product[] = [];
   storeColumns = ["ID", "Price", "Name", "Add", "Remove"];
 
   cart: any = {};
-  cartProducts: any = [];
+  cartProducts: Product[] = [];
   cartColumns = ["Quantity", "Price", "Name", "Remove"];
 
   constructor(private route: ActivatedRoute, private custSer: CustomerService, private prodSer: ProductService) { }
@@ -49,6 +50,14 @@ export class CartComponent implements OnInit {
   removeProduct(pid: any): void {
     delete this.cart[pid];
     this.custSer.removeProductFromCart(this.uid, pid).subscribe(data => console.log(data));
+  }
+
+  getTotalPrice() {
+    let total: number = 0;
+    for(let product of this.cartProducts) {
+      total += product.price * this.cart[product._id];
+    }
+    return total;
   }
 
 }
