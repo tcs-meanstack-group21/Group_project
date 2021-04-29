@@ -7,15 +7,19 @@ import { Router } from '@angular/router';
 })
 export class EmployeeService {
 
-  ipAddress : string = "http://localhost";
+  ipAddress : string = "http://localhost:9090";
 
   constructor(private http : HttpClient, private router : Router ){ }
 
   
   empSignIn(value:any){
-    this.http.get(`${this.ipAddress}:9090/empSignIn`, value ).
+    this.http.get(`${this.ipAddress}/empSignIn`, value ).
     subscribe(result => {
-      this.router.navigate(["empDash"])
+      console.log(result)
+      if(result !== null){
+        this.router.navigate(["empDash"])
+      }
+      // 
     }, err => {
       console.log("err "+ err.message)
     })
