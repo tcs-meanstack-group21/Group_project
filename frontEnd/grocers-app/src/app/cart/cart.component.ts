@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, ActivatedRoute, ParamMap } from '@angular/router';
 import { CustomerService } from '../customer.service';
+import { Product } from '../model.product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class CartComponent implements OnInit {
 
   uid: string = "-1";
 
-  products: Object[] = [];
+  products: Product[] = [];
   storeColumns = ["ID", "Price", "Name", "Add", "Remove"];
 
   cart: any = {};
