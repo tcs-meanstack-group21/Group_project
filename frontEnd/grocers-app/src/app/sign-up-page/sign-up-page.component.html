@@ -1,35 +1,75 @@
-<div class="container">
-    <h2 class="floatLeft">Sign Up</h2>
-    <hr class="clearFix">
-    <div class="center">
-      <h1>Grocers-Stroe</h1>
-        <form id="form" [formGroup]="signUpInfo" (ngSubmit)="signUp()" >
-            <div class="row mb-3">
-                <label  class="col-sm-2 col-form-label">Email: </label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password: </label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" formControlName="pass" placeholder="Enter password">
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm: </label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" formControlName="conf" placeholder="Confirm password">
-                </div>
-              </div>
-                <input type="submit" value="Sign Up" class="btn btn-outline-primary">
-                <input type="reset" value= "Reset" class="btn btn-outline-primary">
-        </form>
-            Already have the account? Try to <a routerLink="../init">Sign in</a>.
-        
-           
-        
-    </div>
-    
-
-</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>User-signup</title>
+  </head>
+  <body class = "container-fluid">
+    <h2 style = "text-align: center;">Customer Sign-up</h2>
+    <br>
+    <form #customerRef="ngForm" novalidate (ngSubmit)="addCustomer(customerRef.value)">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" placeholder="First Name" ngModel required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" placeholder="Last Name" ngModel required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="birthDate">Date Of Birth</label>
+          <input type="date" class="form-control" name="birthDate" placeholder="Date Of Birth" ngModel>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="phone">Mobile Number</label>
+          <input type="text" class="form-control" name="phone" placeholder="Mobile Number" ngModel>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Email" ngModel required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password" ngModel required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="street">Address</label>
+        <input type="text" class="form-control" name="street" placeholder="1234 Main St" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="aptUnit">Address 2</label>
+        <input type="text" class="form-control" name="aptUnit" placeholder="Apartment, studio, or floor" ngModel>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="city">City</label>
+          <input type="text" class="form-control" name="city" ngModel>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="state">State</label>
+          <select id="state" class="form-control" name="state" ngModel>
+            <option selected>Choose...</option>
+            <option>California</option>
+            <option>Missouri</option>
+            <option>Texas</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="postalCode">Zip</label>
+          <input type="text" class="form-control" name="postalCode" ngModel>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+</body>
+</html>
