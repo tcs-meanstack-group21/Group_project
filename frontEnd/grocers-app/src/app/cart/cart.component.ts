@@ -47,9 +47,10 @@ export class CartComponent implements OnInit {
     this.custSer.addProductToCart(this.uid, product._id, 1).subscribe(data => console.log(data));
   }
 
-  removeProduct(pid: any): void {
-    delete this.cart[pid];
-    this.custSer.removeProductFromCart(this.uid, pid).subscribe(data => console.log(data));
+  removeProduct(product: any): void {
+    delete this.cart[product._id];
+    this.cartProducts = this.cartProducts.filter((value) => value != product)
+    this.custSer.removeProductFromCart(this.uid, product._id).subscribe(data => console.log(data));
   }
 
   getTotalPrice() {
