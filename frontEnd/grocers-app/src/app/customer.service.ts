@@ -39,7 +39,6 @@ export class CustomerService {
   }
 
   removeProductFromCart(uid: any, pid: any) {
-    console.log("Removed " + pid);
     return this.http.delete(this.ipAddress + `/customer/${uid}/removeProductFromCart/${pid}`)
   }
 

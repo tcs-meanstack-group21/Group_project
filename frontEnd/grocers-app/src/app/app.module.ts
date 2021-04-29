@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 // Inital & Login Components
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -42,6 +43,8 @@ import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.compon
 import { CartComponent } from './cart/cart.component';
 import { AddFundsComponent } from './customer/add-funds/add-funds.component';
 import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+
 import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
@@ -70,6 +73,7 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     CustSignInComponent,
     AddFundsComponent,
     EditProfileComponent,
+    RaiseTicketComponent,
     AdminSignInComponent,
     ViewRequestsComponent
   ],
@@ -84,6 +88,7 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     MatDividerModule,
     MatTableModule,
     MatTabsModule,
+    MatFormFieldModule,
     FormsModule,
     HttpClientModule
   ],

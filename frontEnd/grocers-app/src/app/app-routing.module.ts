@@ -31,6 +31,7 @@ import { EditProfileComponent } from './customer/edit-profile/edit-profile.compo
 import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewRequestsComponent } from './view-requests/view-requests.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
@@ -40,6 +41,8 @@ const routes: Routes = [
   {path: "\addFunds", component:AddFundsComponent},
   {path: "\editProfile", component:EditProfileComponent},
 
+  {path: "", redirectTo : "\init", pathMatch:"full"},
+  
   {path: "\addProduct", component: AddProductComponent},
   {path: "retrieveProducts", component: RetrieveProductComponent},
   {path: "\deleteProduct", component: DeleteProductComponent},
@@ -49,7 +52,6 @@ const routes: Routes = [
   {path: "\empSignIn", component : EmpSignInComponent}, // Employee - Sign In
   {path:"\empDash", component: EmployeeDashboardComponent}, // Employee - Dashboard
   {path:"\empReq", component: EmployeeRequestComponent}, // Employee - Send Request
-  {path: ":uid/cart", component: CartComponent},
   {path:"\addEmployee", component: AddEmployeeComponent},
   {path:"\deleteEmployee", component: DeleteEmployeeComponent},
   {path:"\empOrd", component: EmployeeOrderStatusComponent}, // Employee - Update Order Status
@@ -57,6 +59,10 @@ const routes: Routes = [
   {path:"\empEdit", component: EmployeeEditProfileComponent}, // Employee - Edit Profile
 
   {path: "", redirectTo : "\init", pathMatch:"full"},
+  
+  {path: "customer/cart", component: CartComponent},
+  {path: "ticket", component: RaiseTicketComponent},
+  
   {path:"\adminHome", component: AdminComponent},
   {path:"\adminSignIn", component: AdminSignInComponent},
   {path:"viewRequests", component: ViewRequestsComponent}

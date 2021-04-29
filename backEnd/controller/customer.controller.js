@@ -76,7 +76,8 @@ const checkout = (req, res) => {
                         res.send("Insufficient funds");
                         return;
                     }
-                    OrderModel.create({ _id: user._id, customer: user._id, cart: user.cart }, (err3, order) => {
+                    const newId = Math.round(Math.random() * Number.MAX_SAFE_INTEGER)
+                    OrderModel.create({ _id: newId, customer: user._id, cart: user.cart }, (err3, order) => {
                         if (err3) {
                             res.send("Could not create order: " + err3);
                             return;
