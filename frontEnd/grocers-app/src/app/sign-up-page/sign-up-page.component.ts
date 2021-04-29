@@ -8,20 +8,15 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./sign-up-page.component.css']
 })
 export class SignUpPageComponent implements OnInit {
+  customerRef: any;
 
-  signUpInfo = new FormGroup({
-    user : new FormControl(),
-    pass : new FormControl(),
-    conf : new FormControl()
-  })
-
-  
+    
   constructor(private custServer : CustomerService) { }
 
   ngOnInit(): void {
   }
-  signUp(){
-    
-    this.custServer.custSignUp(this.signUpInfo);
+  addCustomer(customerRef:any){
+    console.log(customerRef);
+    this.custServer.custSignUp(customerRef);
   }
 }
