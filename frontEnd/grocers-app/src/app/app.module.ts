@@ -36,6 +36,7 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
 import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DailyReportsComponent } from './daily-reports/daily-reports.component';
 import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
 import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
 
@@ -69,6 +70,7 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
     EmpSignInComponent,
+    DailyReportsComponent,
     CustDashoardComponent,
     CustSignInComponent,
     AddFundsComponent,

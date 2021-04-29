@@ -10,7 +10,7 @@ import { CustomerService } from '../customer.service';
 export class SignUpPageComponent implements OnInit {
 
   signUpInfo = new FormGroup({
-    user : new FormControl(),
+    email : new FormControl(),
     pass : new FormControl(),
     conf : new FormControl()
   })
