@@ -15,7 +15,7 @@
 
     <!-- Form to update order statuses for Employee -->
     <div class="center justify-content-center">
-        <form id="form" [formGroup]="orderUpdateForm" (ngSubmit)="updateStatus()">
+        <form id="form" [formGroup]="orderUpdateForm" (ngSubmit)="updateStatus(orderUpdateForm.value)">
             <div class = "row mb-3">
 
                 <label class="col-sm-2 col-form-label">Order Number</label>
@@ -25,8 +25,14 @@
 
                 <label class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="status">
-                </div>
+                    <select class="form-select" aria-label="Default select example" formControlName="status">
+                    <option value="Processing Order">Processing Order</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Out for Delivery">Out for Delivery</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                  </div>
 
                 <input type="submit" value="Update Order" class="btn btn-outline-primary">
                 <input type="reset" value="Reset" class="btn btn-outline-primary">
