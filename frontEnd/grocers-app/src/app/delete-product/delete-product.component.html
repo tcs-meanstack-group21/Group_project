@@ -1,7 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Delete Product</title>
+  </head>
+  <body class = "container-fluid">
+    <h2 style = "text-align: center;">Delete Product By Name</h2>
+    <br/>
+
+
 <div>
     <app-cust-dashoard></app-cust-dashoard>
-    <h2>Delete Product by Name</h2>
-    Name : <input type="text" #nameRef/><br/>
-    <input type="button" value="Delete Product by Name" (click)="deleteProductByName(nameRef.value)"/><br/>
+    
+    <div class="form-row">
+        <div class="col-md-4 mb-3"> 
+            <label>Name</label>
+            <input type="text" class="form-control" #nameRef/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <button type="submit" class="btn btn-primary" (click)="deleteProductByName(nameRef.value)">Delete Product by Name</button>
+        </div>
+    </div>
     {{deleteMsg}}
 </div>
+<hr/>
+<app-retrieve-product [products]="products"></app-retrieve-product>

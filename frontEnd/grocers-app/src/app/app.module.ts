@@ -42,6 +42,8 @@ import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.compon
 import { CartComponent } from './cart/cart.component';
 import { AddFundsComponent } from './customer/add-funds/add-funds.component';
 import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
 @NgModule({
   declarations: [ 
@@ -67,7 +69,9 @@ import { EditProfileComponent } from './customer/edit-profile/edit-profile.compo
     CustDashoardComponent,
     CustSignInComponent,
     AddFundsComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AdminSignInComponent,
+    ViewRequestsComponent
   ],
   imports: [
     BrowserModule,

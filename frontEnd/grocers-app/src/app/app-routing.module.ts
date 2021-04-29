@@ -28,6 +28,9 @@ import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.co
 import { CartComponent } from './cart/cart.component';
 import { AddFundsComponent } from './customer/add-funds/add-funds.component';
 import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { AdminComponent } from './admin/admin.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
@@ -53,7 +56,10 @@ const routes: Routes = [
   {path:"\empLock", component: EmployeeLockedUsersComponent}, // Employee - Locked Users
   {path:"\empEdit", component: EmployeeEditProfileComponent}, // Employee - Edit Profile
 
-  {path: "", redirectTo : "\init", pathMatch:"full"}
+  {path: "", redirectTo : "\init", pathMatch:"full"},
+  {path:"\adminHome", component: AdminComponent},
+  {path:"\adminSignIn", component: AdminSignInComponent},
+  {path:"viewRequests", component: ViewRequestsComponent}
 ];
 
 @NgModule({

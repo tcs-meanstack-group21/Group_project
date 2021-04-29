@@ -1,16 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Add Products</title>
+  </head>
+  <body class = "container-fluid">
+    <h2 style = "text-align: center;">Add Product</h2>
+    <br/>
 <div>
     <app-cust-dashoard></app-cust-dashoard>
-    <form #productRef="ngForm" (ngSubmit)="addProduct(productRef.value)">    
-        <label>Product Id</label>
-        <input type="text" name="pid" ngModel><br/>
-        <label>Product Name</label>
-        <input type="text" name="pname" ngModel><br/>
-        <label>Price</label>
-        <input type="text" name="price" ngModel><br/>
-        <label>Quantity</label>
-        <input type="text" name="quantity" ngModel><br/>
-        <input type="submit" value="Add Product"/>
-        <input type="reset" value="Reset"/><br/>
+    <form #productRef="ngForm" (ngSubmit)="addProduct(productRef.value)">   
+        <div class="form-row">
+            <div class="col-md-3 mb-3"> 
+                <label>Product Id</label>
+                <input type="text" class="form-control" name="pid" ngModel>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Product Name</label>
+                <input type="text" class="form-control" name="pname" ngModel>
+            </div>
+            <div class="col-md-3 mb-3">    
+                <label>Price</label>
+                <input type="text" class="form-control" name="price" ngModel>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Quantity</label>
+                <input type="text" class="form-control" name="quantity" ngModel>
+            </div>    
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-primary" type="submit" >Add Product</button>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-primary" type="reset">Reset</button>
+            </div>
+        </div>
     </form>
     {{addMsg}}
 </div>
+<hr/>
+<app-retrieve-product [products]="products"></app-retrieve-product>
+</body>
+</html>

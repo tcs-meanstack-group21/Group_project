@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  ipAddress : string = "http://localhost";
+  ipAddress : string = "http://localhost:9090";
 
   constructor(private http : HttpClient, private router : Router ) { }
 
   custSignIn(value : any){
-    this.http.get(this.ipAddress+":9090/customer/custSignIn", value, ).
+    this.http.get(this.ipAddress+"/customer/custSignIn", value, ).
     subscribe(result => {
       this.router.navigate(["custDash"])
     }, err => {
@@ -22,7 +22,7 @@ export class CustomerService {
   }
   custSignUp(value : any){
     console.log(JSON.stringify(value))
-    this.http.post(this.ipAddress+":9090/customer/custSignUp", JSON.stringify(value), ).
+    this.http.post(this.ipAddress+"/customer/custSignUp", value ).
     subscribe(result => {
       console.log(result)
     }, err => {

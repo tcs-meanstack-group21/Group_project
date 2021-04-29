@@ -4,9 +4,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const RequestSchema = new Schema({
-    // Search through ProductSchema model, find requested _id, name, price and current quantity
-    // Store requested updated quantity for product
-    _id: Number, // Request number
     SKU: Number, // product _id SKU
     name: String,
     price: Number,

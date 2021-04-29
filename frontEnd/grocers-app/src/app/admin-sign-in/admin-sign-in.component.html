@@ -1,0 +1,12 @@
+<div>
+    <h2>Add Sign in</h2>
+    <form #adminRef="ngForm" (ngSubmit)="adminSignIn(adminRef.value)">    
+        <label>Admin User Id</label>
+        <input type="text" name="id" ngModel><br/>
+        <label>Password</label>
+        <input type="text" name="pass" ngModel><br/>
+        <input type="submit" value="Sign In"/>
+        <input type="reset" value="Reset"/><br/>
+    </form>
+    {{msg}}
+</div>
