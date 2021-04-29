@@ -15,7 +15,7 @@
 
     <!-- Form to update order statuses for Employee -->
     <div class="center justify-content-center">
-        <form id="form" [formGroup]="orderUpdateForm" (ngSubmit)="updateStatus()">
+        <form id="form" [formGroup]="orderUpdateForm" (ngSubmit)="updateStatus(orderUpdateForm.value)">
             <div class = "row mb-3">
 
                 <label class="col-sm-2 col-form-label">Order Number</label>
