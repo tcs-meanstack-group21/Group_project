@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../model.product';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,18 +8,17 @@ import { ProductService } from '../product.service';
 })
 export class AddProductComponent implements OnInit {
 
-  products:Array<Product> = [];
   addMsg?:string;
+  @Output() updateProducts =new EventEmitter();
 
   constructor(public proService:ProductService) { }
 
   ngOnInit(): void {
-    this.proService.retrieveProductDetails().subscribe(result=>this.products=result)
   }
 
   addProduct(productRef:any){
     this.proService.addProductDetails(productRef)
       .subscribe((result:string)=>this.addMsg=result,(error:string)=>this.addMsg=error);
-      this.proService.retrieveProductDetails().subscribe(result=>this.products=result)
+    this.updateProducts.emit()  
   }
 }

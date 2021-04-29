@@ -1,5 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { Product } from '../model.product';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -7,25 +6,20 @@ import { ProductService } from '../product.service';
   templateUrl: './delete-product.component.html',
   styleUrls: ['./delete-product.component.css']
 })
-export class DeleteProductComponent implements OnInit, OnChanges {
+export class DeleteProductComponent implements OnInit {
 
-  products: Array<Product> = [];
   deleteMsg?:string;
+  @Output() updateProducts =new EventEmitter();
 
   constructor(public proService:ProductService) { }
 
   ngOnInit(): void {
-    this.proService.retrieveProductDetails().subscribe(result=>this.products=result)
-  }
-
-  ngOnChanges(): void {
-    this.proService.retrieveProductDetails().subscribe(result=>this.products=result)
   }
 
   deleteProductByName(nameRef:any){
     this.proService.deleteProductByName(nameRef)
       .subscribe((result:string)=>this.deleteMsg=result,(error:string)=>this.deleteMsg=error)
-    this.proService.retrieveProductDetails().subscribe(result=>this.products=result)
+    this.updateProducts.emit() 
   }
 
 }

@@ -17,7 +17,7 @@
                             <td>{{product.name}}</td>
                             <td>${{product.price}}</td>
                             <td><button mat-raised-button (click)="addProduct(product)">Add Item</button></td>
-                            <td><button mat-raised-button (click)="removeProduct(product._id)">Remove Item</button></td>
+                            <td><button mat-raised-button (click)="removeProduct(product)">Remove Item</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -38,8 +38,8 @@
                             <td>{{product.name}}</td>
                             <td>${{product.price}}</td>
                             <td>{{cart[product._id]}}</td>
-                            <td>${{cart[product._id] * product.price}}</td>
-                            <td><button mat-raised-button (click)="removeProduct(product._id)">Remove Item</button></td>
+                            <td>${{cart[product._id] * (product.price || 0)}}</td>
+                            <td><button mat-raised-button (click)="removeProduct(product)">Remove Item</button></td>
                         </tr>
                         <tr>
                             <td colspan="3">Cart Total</td>

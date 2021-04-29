@@ -48,6 +48,7 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 
 import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 import { ViewRequestsComponent } from './view-requests/view-requests.component';
+import { CustOrderStatusComponent } from './customer/cust-order-status/cust-order-status.component';
 
 @NgModule({
   declarations: [ 
@@ -77,7 +78,8 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     EditProfileComponent,
     RaiseTicketComponent,
     AdminSignInComponent,
-    ViewRequestsComponent
+    ViewRequestsComponent,
+    CustOrderStatusComponent
   ],
   imports: [
     BrowserModule,
