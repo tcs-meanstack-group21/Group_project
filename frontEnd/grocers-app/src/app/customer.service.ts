@@ -1,14 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  ipAddress = "http://localhost:9090"
 
-  constructor(public http: HttpClient) { }
+  ipAddress : string = "http://localhost:9090";
+
+  constructor(private http : HttpClient, private router : Router ) { }
+
+  custSignIn(value : any){
+    this.http.get(this.ipAddress+"/customer/custSignIn", value, ).
+    subscribe(result => {
+      this.router.navigate(["custDash"])
+    }, err => {
+      console.log("err "+ err.message)
+    })
+  }
+  custSignUp(value : any){
+    console.log(JSON.stringify(value))
+    this.http.post(this.ipAddress+"/customer/custSignUp", value ).
+    subscribe(result => {
+      console.log(result)
+    }, err => {
+      console.log("err "+ err.message)
+    })
+  }
 
   getCart(uid: any): Observable<any> {
     return this.http.get(this.ipAddress + `/customer/${uid}/getCart`)

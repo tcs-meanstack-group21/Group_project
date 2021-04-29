@@ -13,6 +13,9 @@ h1 {
 .center {
   text-align: center;
 }
+.red {
+  color: red;
+}
 #form {
   padding: 50px;
   max-width: 50%;
