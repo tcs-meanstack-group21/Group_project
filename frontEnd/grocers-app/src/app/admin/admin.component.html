@@ -1,14 +1,15 @@
 <div>
     <h2>Welcome Admin</h2>
     <div class="right">
-     <a routerLink="../addEmployee">Add Employee </a>
-     <a routerLink="../deleteEmployee"> Delete Employee </a>
-     <a routerLink="../addProduct"> Add Product </a>
-     <a routerLink="../updatePrice"> Update Product Price </a>
-     <a routerLink="../updateQuantity"> Update Product Quantity </a>
-     <a routerLink="../deleteProduct"> Delete Product </a>
-     <a routerLink="../viewRequests"> View Requests </a>
-     <a routerLink="../init"> Log Out </a>
+     <mat-tab-group> 
+     <mat-tab label="Add Employee"><app-add-employee></app-add-employee></mat-tab>
+     <mat-tab label="Delete Employee"><app-delete-employee></app-delete-employee></mat-tab>
+     <mat-tab label="Add Products"><app-add-product></app-add-product></mat-tab>
+     <mat-tab label="Update Product Price" ><app-update-product-price></app-update-product-price></mat-tab>
+     <mat-tab label="Update Product Quantity"><app-update-product-quantity></app-update-product-quantity></mat-tab>
+     <mat-tab label="Delete Product"><app-delete-product></app-delete-product></mat-tab>
+     <mat-tab label="View Requests"></mat-tab>
+    </mat-tab-group>
     </div>
     <br>
     <router-outlet>
