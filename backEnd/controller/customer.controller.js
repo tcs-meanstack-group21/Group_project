@@ -184,25 +184,4 @@ let custSignUp = (req,res) =>{
     })
     }
     
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout , addFunds, getFunds, custSignIn, custSignUp}
-let custSignUp = (req, res) => {
-    const cid = eval(req.body.user);
-    const pass = req.body.pass;
-    const customer = new CustomerModel({
-        _id: cid,
-        password: pass,
-    });
-
-    customer.save((err, result) => {
-        if (!err) {
-            console.log(cid + "," + pass)
-            res.send("Record stored successfully ")
-            //res.json({"msg":"Record stored successfully"})
-        } else {
-            res.send("Record didn't store ");
-        }
-    })
-}
-
-
 module.exports = { getCart, addProductToCart, removeProductFromCart, checkout, addFunds, getFunds, custSignIn, custSignUp }
