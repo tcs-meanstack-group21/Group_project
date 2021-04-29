@@ -16,5 +16,12 @@ let changeOrderStatus = (req,res) =>{
     })
 }
 
+let retrieveOrders = (req, res) => {
+    orderModel.find( {}, (error, result) => {
+        if (!error){
+            res.json(result)
+        }
+    })
+}
 
-module.exports = {changeOrderStatus}
+module.exports = {changeOrderStatus, retrieveOrders}

@@ -17,7 +17,7 @@ export class EmployeeOrderStatusComponent implements OnInit {
   })
 
   constructor(public ordService:OrderService) { }
-  
+
   orders:Array<Order> = []
 
   ngOnInit(): void {

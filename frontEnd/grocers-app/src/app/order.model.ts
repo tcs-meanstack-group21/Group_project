@@ -1,11 +1,3 @@
 export class Order {
-    constructor(
-        public _id: Number,
-        public customer: Number,
-        public cart: Array<any>,
-        public dateOrdered: Date,
-        public dateDelivered: Date,
-        public orderStatus: String,
-        public cancellationReason: String
-    ) { }
+    constructor(public _id:number, public customer:number, public cart:number, public dateOrdered:Date, public dateDelivered: Date, public orderStatus:string, public cancellations:string){}
 }

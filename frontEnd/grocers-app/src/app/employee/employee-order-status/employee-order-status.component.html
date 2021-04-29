@@ -25,9 +25,14 @@
 
                 <label class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="status">
+                    <select class="form-select" formControlName="status">
+                        <option value="Order Pending">Order Pending</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Out for Delivery">Out for Delivery</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
                 </div>
-
                 <input type="submit" value="Update Order" class="btn btn-outline-primary">
                 <input type="reset" value="Reset" class="btn btn-outline-primary">
             </div>
@@ -47,23 +52,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr scope="row">
-                    <td>Order # here</td>
-                    <td>Date ordered here</td>
-                    <td>Order status here</td>
-                    <td>Order Customer here</td>
-                </tr>
-                <tr scope="row">
-                    <td>Order # here</td>
-                    <td>Date ordered here</td>
-                    <td>Order status here</td>
-                    <td>Order Customer here</td>
-                </tr>
-                <tr scope="row">
-                    <td>Order # here</td>
-                    <td>Date ordered here</td>
-                    <td>Order status here</td>
-                    <td>Order Customer here</td>
+                <tr scope="row" *ngFor="let ord of orders">
+                    <td>{{ord._id}}</td>
+                    <td>{{ord.dateOrdered}}</td>
+                    <td>{{ord.orderStatus}}</td>
+                    <td>{{ord.customer}}</td>
                 </tr>
             </tbody>
         </table>
