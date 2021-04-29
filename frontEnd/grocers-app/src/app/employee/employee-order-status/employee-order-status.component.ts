@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Order } from 'src/app/order.model';
 import { OrderService } from 'src/app/order.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { OrderService } from 'src/app/order.service';
   styleUrls: ['./employee-order-status.component.css']
 })
 export class EmployeeOrderStatusComponent implements OnInit {
-  updateMsg?:string
+  updateMsg?:string;
+
   orderUpdateForm = new FormGroup({
     oid : new FormControl(),
     status : new FormControl()
@@ -16,14 +18,19 @@ export class EmployeeOrderStatusComponent implements OnInit {
 
   constructor(public ordService:OrderService) { }
 
+  orders:Array<Order> = []
+
   ngOnInit(): void {
+    this.ordService.retrieveOrder().subscribe(result => this.orders = result)
   }
 
   updateStatus( statusRef: any ){
     console.log(statusRef);
+  
+    this.ordService.updateStatus(statusRef).subscribe( (result:string) => this.updateMsg = result, (error:string) => this.updateMsg = error );
+
+
     
-    this.ordService.submitStatus(statusRef)
-    .subscribe( (result:string)=> this.updateMsg = result, (error:string)=> this.updateMsg = error );
 
   };
 }
