@@ -1,20 +1,14 @@
 <div>
     <h1>Raise Ticket</h1>
-    <form>
+    <form [formGroup]="ticketInfo" (ngSubmit)="sendTicket()">
         <p>
-            <mat-form-field>
-                <mat-label>Customer ID</mat-label>
-                <input placeholder="Your ID here">
-              </mat-form-field>              
+                <input placeholder="Your ID here" formControlName="uid">              
         </p>
         <p>
-            <mat-form-field appearance="fill">
-                <mat-label>Ticket Reason</mat-label>
-                <textarea placeholder="Reason For Ticket"></textarea>
-            </mat-form-field>
+                <textarea placeholder="Reason For Ticket" formControlName="ticketBody"></textarea>
         </p>
         <p>
-            <button mat-raised-button color="primary">Submit</button>
+            <input mat-raised-button color="primary" type="submit" value="Submit">
         </p>
     </form>
 </div>

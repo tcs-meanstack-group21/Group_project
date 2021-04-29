@@ -45,4 +45,8 @@ export class CustomerService {
   checkout(uid: any) {
     return this.http.post(this.ipAddress + `/customer/${uid}/checkout`, {})
   }
+
+  raiseTicket(value: any) {
+    return this.http.post(this.ipAddress + "/ticket/raiseTicket", value)
+  }
 }
