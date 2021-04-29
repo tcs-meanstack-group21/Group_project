@@ -84,6 +84,10 @@ const checkout = (req, res) => {
                             res.send("Could not create order: " + err3);
                             return;
                         }
+                        const tempCart = user.cart;
+                        for (product of products) {
+                            ProductModel.findByIdAndUpdate(product._id, {quantity: product.quantity - tempCart.get(product._id.toString())}, { useFindAndModify: false }, (errp, prod) => console.log(errp))
+                        }
                         CustomerModel.findByIdAndUpdate(userId, { order: order._id, funds: user.funds - cartCost, cart: {} }, { useFindAndModify: false }, (err4, cust) => {
                             if (!err4) {
                                 res.send("Order successfully placed");
