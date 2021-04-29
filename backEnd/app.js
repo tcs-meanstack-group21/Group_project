@@ -40,4 +40,7 @@ app.use("/employee",Employee)
 const adminRouter = require("./router/admin.router")
 app.use("/admin", adminRouter)
 
+const Reports = require("./router/reports.router.js");
+app.use("/reports",Reports)
+
 app.listen(port,()=> console.log(`Server running on http://localhost:${port}`));

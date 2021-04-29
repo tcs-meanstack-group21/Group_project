@@ -21,6 +21,7 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
 import { EmployeeLockedUsersComponent } from './employee/employee-locked-users/employee-locked-users.component';
 import { EmployeeOrderStatusComponent } from './employee/employee-order-status/employee-order-status.component';
 import { EmployeeRequestComponent } from './employee/employee-request/employee-request.component';
+import { DailyReportsComponent } from './daily-reports/daily-reports.component';
 import { CustSignInComponent } from './customer/cust-sign-in/cust-sign-in.component';
 import { CustDashoardComponent } from './customer/cust-dashoard/cust-dashoard.component';
 
@@ -36,6 +37,8 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 const routes: Routes = [
   {path:"\signUp", component: SignUpPageComponent},
   {path: "\init", component : InitComponent},
+  {path: "", redirectTo : "\init", pathMatch:"full"},
+  {path: "\dailyReports", component: DailyReportsComponent},
   {path: "\custSignIn", component: CustSignInComponent},
   {path: "\custDash",component:CustDashoardComponent},
   {path: "\addFunds", component:AddFundsComponent},
