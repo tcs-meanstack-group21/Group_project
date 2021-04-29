@@ -9,11 +9,12 @@ import { ProductService } from '../product.service';
 })
 export class RetrieveProductComponent implements OnChanges {
 
-  @Input() products?:Array<Product>
+  @Input() products:Array<Product> = [];
   constructor(public proService:ProductService) { }
 
   ngOnChanges(): void {
     this.proService.retrieveProductDetails().subscribe(result=>this.products=result)
   }
+
 
 }

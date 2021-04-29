@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class AddProductComponent implements OnInit {
 
-  products?:Array<Product>
+  products:Array<Product> = [];
   addMsg?:string;
 
   constructor(public proService:ProductService) { }

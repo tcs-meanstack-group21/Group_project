@@ -81,7 +81,6 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     MatTableModule,
     MatTabsModule,
     MatFormFieldModule,
-    FormsModule,
     HttpClientModule
   ],
   providers: [],
