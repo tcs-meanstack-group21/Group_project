@@ -37,4 +37,7 @@ app.use("/order",orderRouter)
 const Employee = require("./router/employee.router.js");
 app.use("/employee",Employee)
 
+const Reports = require("./router/reports.router.js");
+app.use("/reports",Reports)
+
 app.listen(port,()=> console.log(`Server running on http://localhost:${port}`));

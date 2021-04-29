@@ -32,6 +32,7 @@ import { EmployeeEditProfileComponent } from './employee/employee-edit-profile/e
 import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DailyReportsComponent } from './daily-reports/daily-reports.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     EmployeeOrderStatusComponent,
     EmployeeLockedUsersComponent,
     EmployeeEditProfileComponent,
-    EmpSignInComponent
+    EmpSignInComponent,
+    DailyReportsComponent
   ],
   imports: [
     BrowserModule,
