@@ -8,10 +8,8 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./sign-up-page.component.css']
 })
 export class SignUpPageComponent implements OnInit {
-  customerRef: any;
 
-    
-  constructor(private custServer : CustomerService) { }
+  constructor(public custServer : CustomerService) { }
 
   ngOnInit(): void {
   }
