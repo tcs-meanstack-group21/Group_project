@@ -21,6 +21,8 @@ const getCart = (req, res) => {
     })
 }
 
+
+
 const addProductToCart = (req, res) => {
     const productId = req.body.pid.toString();
     const userId = req.params.uid;
@@ -102,7 +104,35 @@ const checkout = (req, res) => {
         } else res.send("Error: ")
     })
 }
+let updateProfile = (req,res) =>{
+    
 
+    const 
+     email = req.body.email,
+     street = req.body.street,
+     aptUnit = req.body.aptUnit,
+     city = req.body.city,
+     state = req.body.state;
+    
+    CustomerModel.updateOne({ email : email}, {$set: {
+    email : email, 
+    street : street,
+    aptUnit :aptUnit,
+    city :city,
+    state : state}}, (err,result) =>{
+        if(!err){
+            if(result.nModified>0){
+                    res.send("Funds updated succesfully")
+            }else {
+                    res.send("User is not available/ Same amount");
+            }
+        }else {
+            res.send("Error generated "+err.message);
+        }
+    })
+    
+
+}
 const addFunds = (req,res) =>{
     const id = req.body.id;
     const cfunds = parseFloat(req.body.amount);
@@ -184,4 +214,4 @@ let custSignUp = (req,res) =>{
     })
     }
     
-module.exports = { getCart, addProductToCart, removeProductFromCart, checkout, addFunds, getFunds, custSignIn, custSignUp }
+module.exports = { updateProfile, getCart, addProductToCart, removeProductFromCart, checkout, addFunds, getFunds, custSignIn, custSignUp }

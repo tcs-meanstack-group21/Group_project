@@ -10,5 +10,6 @@ router.get("/getFunds", CustomerController.getFunds)
 router.put("/addFunds", CustomerController.addFunds)
 router.get("/custSignIn",CustomerController.custSignIn)
 router.post("/custSignUp", CustomerController.custSignUp)
+router.put("/updateProf", CustomerController.updateProfile)
 
 module.exports = router;

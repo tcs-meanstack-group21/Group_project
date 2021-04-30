@@ -9,7 +9,9 @@ import { Observable } from 'rxjs';
 export class CustomerService {
 
   ipAddress : string = "http://localhost:9090";
-  
+  message? : string ;
+
+
   constructor(private http : HttpClient, private router : Router ) { }
 
   custSignIn(value : any){
@@ -40,8 +42,18 @@ export class CustomerService {
     })
   }
 
+  updatePro(value : any) : any{
+    this.http.put("http://localhost:9090/customer/updateProf", value , {responseType : "text"}).
+    subscribe(result => {
+      this.message = result
+    }, err => {
+      this.message = err
+    })
+  }
+  
+
   getFunds(id:any){
-    return this.http.get(this.ipAddress+`/customer/addFunds` , {responseType: "text"}).subscribe(result => {
+    return this.http.get(this.ipAddress+`/customer/getFunds` , {responseType: "text"}).subscribe(result => {
       console.log(result)
       return result
     }, err => {
