@@ -8,13 +8,26 @@ import { Order } from './order.model';
 })
 export class OrderService {
 
+  ipAddress = "http://localhost:9090"
+
   constructor(public http:HttpClient) { }
 
   updateStatus( statusRef:any ):any {
-    return this.http.put("http://localhost:9090/order/statusUpdate", statusRef, { responseType: 'text' })
+    return this.http.put(this.ipAddress+"/order/statusUpdate", statusRef, { responseType: 'text' })
   }
 
   retrieveOrder():Observable<Order[]> {
-    return this.http.get<Order[]>("http://localhost:9090/order/retrieveOrders")
+    return this.http.get<Order[]>(this.ipAddress+"/order/retrieveOrders")
   }
+
+  orderList():Observable<Order[]>{
+    return this.http.get<Order[]>(this.ipAddress+"/order/orders")
+  }
+
+  removeOrder(id : any){
+    const idString = `"id": ${id}`
+    return this.http.delete(this.ipAddress+"/order/orderDelete", id )
+  
+  }
+  
 }
