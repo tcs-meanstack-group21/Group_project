@@ -15,6 +15,7 @@ export class EmpSignInComponent implements OnInit {
     pass : new FormControl()
   })
 
+  id?: number;
   message?: string ;
 
   constructor(private empServer: EmployeeService , private router: Router) { }
@@ -23,16 +24,22 @@ export class EmpSignInComponent implements OnInit {
   }
    signIn(){ 
 
-    this.empServer.empSignIn(this.signInInfo.value).subscribe((result : string)=>{
-        this.message=result
-        if(this.message!=="null"){
-          this.router.navigate(["empDash"])
-        }
-        else{
-          this.message = "Invalid Login Credentials"
-          console.log(this.message)
-        }
-      },(error:string)=>this.message=error);  
+    this.empServer.getid(this.signInInfo.value).subscribe((result : string)=>{
+     
+      if(result!=="null"){
+        const resultString = JSON.stringify(result)
+        const resultObj = JSON.parse(resultString)
+        console.log(resultObj)
+        sessionStorage.setItem("employee",resultObj._id)
+        sessionStorage.setItem("name",resultObj.firstName)
+        this.router.navigate(["empDash"])
+      }
+      else{
+        this.message = "Invalid Login Credentials";
+      }
+    },(error:string)=>this.message=error);  
+
+    
   }   
 
 }

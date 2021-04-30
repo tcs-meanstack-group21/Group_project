@@ -6,7 +6,7 @@ const port = 9090;
 const url = "mongodb://localhost:27017/meanstack";
 
 app.use(bodyParser.urlencoded({extended:true}));    // enable body part data  
-app.use(bodyParser.json());                         // json data. 
+app.use(bodyParser.json());                     // json data. 
 app.use(cors());   
 
 const mongooseDbOption ={       // to avoid warning 

@@ -2,9 +2,11 @@ const EmployeeModel = require("../model/employee.model");
 
 // Employee Sign In 
 let empSignIn = (req,res) =>{
+    console.log(req)
     const email = req.body.email;
     const pass = req.body.pass;
-    EmployeeModel.findOne({emailId: email, password:pass} , (err,data) => {
+    
+    EmployeeModel.find({emailId: email, password:pass} , (err,data) => {
         if(!err){
             // res.redirect('/empDash')
              res.json(data);
@@ -14,6 +16,19 @@ let empSignIn = (req,res) =>{
     })
 }
 
+let getID = (req,res) =>{
+   
+    const email = req.body.email;
+    const pass = req.body.pass;
+    
+    EmployeeModel.find({emailId: email, password:pass} , (err,data) => {
+        if(!err){
+             res.send(data[0]);
+        }else{
+            res.send(err.message)
+        }
+    })
+}
 
 // Employee Update Password
 let updateEmpPass = (req, res) => {
@@ -73,4 +88,4 @@ const deleteEmployeeById= (req,res)=> {
 }
 
 
-module.exports = {empSignIn,  addEmployeeInfo, deleteEmployeeById, updateEmpPass}
+module.exports = {getID, empSignIn,  addEmployeeInfo, deleteEmployeeById, updateEmpPass}

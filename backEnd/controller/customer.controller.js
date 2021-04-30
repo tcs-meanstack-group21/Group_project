@@ -134,54 +134,56 @@ let updateProfile = (req,res) =>{
 
 }
 const addFunds = (req,res) =>{
-    const id = req.body.id;
+    const email = req.body.email;
     const cfunds = parseFloat(req.body.amount);
     let totalAmount;
-    CustomerModel.find({_id:id},(err,data)=> {
+    CustomerModel.find({email:email} ,(err,data)=> {
         if(!err){
-            if(data[0].funds ==null){
+            if(data[0].funds == null){
                 totalAmount = cfunds
+
             }else{
                 totalAmount = parseFloat(data[0].funds) + cfunds
+                
             }
-            CustomerModel.updateOne({_id : id}, {$set: {funds : totalAmount}}, (err,result) =>{
-                if(!err){
+            CustomerModel.updateOne({email : email}, {$set: {funds : totalAmount}}, (err2,result) =>{
+                if(!err2){
                     if(result.nModified>0){
                             res.send("Funds updated succesfully")
                     }else {
-                        console.log("y")
                             res.send("User is not available/ Same amount");
                     }
                 }else {
-                    res.send("Error generated "+err.message);
+                    res.send("Error generated "+err2.message);
                 }
             })
         }else{
-            res.send("No user found")
+            res.send("Err",err)
         }
     })
     
 }
 
 const getFunds = (req,res) =>{
-    const id = req.body.id;
-    CustomerModel.find({_id:id},(err,data)=> {
+    const email = req.body.email;
+    console.log(req)
+    CustomerModel.findOne({email : email},(err,data)=> {
         if(!err){
-            res.json(data[0].funds); 
+            res.json(data); 
         }else{
             res.send("No user found")
         }
     })
 }
 let custSignIn = (req, res) => {
-    const cid = eval(req.body.user);
+    const email = req.body.email;
     const pass = req.body.pass;
-    CustomerModel.findOne({ _id: cid, password: pass }, (err, data) => {
-
-        if (!err) {
-            res.json(data);
-        } else {
-            res.json(err.message)
+    
+    CustomerModel.find({email: email, password:pass} , (err,data) => {
+        if(!err){
+             res.send(data[0]);
+        }else{
+            res.send(err.message)
         }
     })
 }

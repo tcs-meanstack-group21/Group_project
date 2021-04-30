@@ -8,12 +8,13 @@ export class EmployeeService {
 
   ipAddress : string = "http://localhost:9090";
 
+  
   constructor(private http : HttpClient ){ }
 
   
   empSignIn(value : any):any {
-    console.log(value)
-    this.http.post(this.ipAddress+"/employee/empSignIn", value, {responseType:"text"})
+    
+    this.http.post(this.ipAddress+"/employee/empSignIn", value)
   }
 
 
@@ -21,5 +22,8 @@ export class EmployeeService {
     return this.http.put("http://localhost:9090/employee/empEdit", profileRef, { responseType: 'text' })
   }
 
+  getid(value:any) : any{
+    return this.http.post("http://localhost:9090/employee/getid", value)
+  }
 
 }

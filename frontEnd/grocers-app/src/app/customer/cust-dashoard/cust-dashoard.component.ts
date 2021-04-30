@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustDashoardComponent implements OnInit {
 
-  name : string = "user";
+  name : string | null= sessionStorage.getItem("customer");
 
   constructor() { }
 
