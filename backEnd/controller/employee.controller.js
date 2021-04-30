@@ -2,12 +2,12 @@ const EmployeeModel = require("../model/employee.model");
 
 // Employee Sign In 
 let empSignIn = (req,res) =>{
-    const email = eval(req.body.email);
+    const email = req.body.email;
     const pass = req.body.pass;
     EmployeeModel.findOne({emailId: email, password:pass} , (err,data) => {
         if(!err){
-            res.redirect('/empDash')
-            // res.json(data);
+            // res.redirect('/empDash')
+             res.json(data);
         }else{
             res.send(err.message)
         }

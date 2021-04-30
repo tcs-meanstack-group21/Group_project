@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +11,11 @@ export class EmployeeService {
   constructor(private http : HttpClient ){ }
 
   
-  empSignIn(value:any):any {
+  empSignIn(value : any):any {
     console.log(value)
-    this.http.post(`${this.ipAddress}/employee/empSignIn`, value, {responseType:"text"})
+    this.http.post(this.ipAddress+"/employee/empSignIn", value, {responseType:"text"})
   }
+
 
   updateProfile( profileRef:any ):any {
     return this.http.put("http://localhost:9090/employee/empEdit", profileRef, { responseType: 'text' })

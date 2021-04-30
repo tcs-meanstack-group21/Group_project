@@ -22,10 +22,11 @@ export class EmpSignInComponent implements OnInit {
   ngOnInit(): void {
   }
    signIn(){ 
-    this.empServer.empSignIn(this.signInInfo.value).subscribe((result:string)=>{
+
+    this.empServer.empSignIn(this.signInInfo.value).subscribe((result : string)=>{
         this.message=result
         if(this.message!=="null"){
-          this.router.navigate(["../empDash"])
+          this.router.navigate(["empDash"])
         }
         else{
           this.message = "Invalid Login Credentials"
