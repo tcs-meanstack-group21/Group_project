@@ -37,4 +37,30 @@ const raiseTicket = (req, res) => {
     })
 }
 
-module.exports = { getTickets, raiseTicket }
+const deleteTicket = (req, res) => {
+    const user = req.params.tick.customer
+    const ticket = req.params.tick._id
+    CustomerModel.findById(user, (error, result) => {
+        if (result) {
+            if (!error && result.lockedStatus == true) {
+                TicketModel.deleteOne({_id: ticket}, (error2, data) => {
+                    if (!error2) {
+                        CustomerModel.findByIdAndUpdate(user, {lockedStatus: false }, (error3, ticketInfo) => {
+                            if (!error3) {
+                                res.send("Account has been unlocked. Ticket is resolved.")
+                            } else {
+                                res.send("Account could not be unlocked, please try again.")
+                            }
+                        })
+                    } else {
+                        res.send ("Error generated attempting to create ticket");
+                    }
+                })
+            } else {
+                res.send("User locked status " + result.lockedStatus + " " + error);
+            }
+        } else res.send("User not found, error in request");
+    })
+}
+
+module.exports = { getTickets, raiseTicket, deleteTicket }
