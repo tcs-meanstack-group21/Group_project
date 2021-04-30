@@ -5,16 +5,16 @@
         <div class="form-row">
             <div class="col-md-4 mb-3"> 
                 <label>Product Id</label>
-                <input type="text" class="form-control" name="pid" ngModel>
+                <input type="text" class="form-control" name="pid" ngModel required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>New Price</label>
-                <input type="text" class="form-control" name="newPrice" ngModel>
+                <input type="text" class="form-control" name="newPrice" ngModel required>
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-3 mb-3">
-                <button class="btn btn-primary" type="submit">Update Price</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!productRef.form.valid">Update Price</button>
             </div>
             <div class="col-md-3 mb-3">
                 <button class="btn btn-primary" type="reset">Reset</button>

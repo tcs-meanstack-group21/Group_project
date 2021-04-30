@@ -2,29 +2,32 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class = "container-fluid"> 
-<div>
-    <h2>Welcome Admin</h2>
+  <div class="container">
+  <h1 class="floatLeft intro">Admin Dashboard</h1>
+  <button class="btn floatRight" mat-stroked-button color="primary" routerLink=""><i class="bi bi-box-arrow-right"></i> Logout</button>
+<div class="floatLeft">
     <div class="right">
      <mat-tab-group (selectedTabChange)="onTabChanged($event);"> 
-     <mat-tab label="Add Employee"><app-add-employee></app-add-employee></mat-tab>
-     <mat-tab label="Delete Employee"><app-delete-employee></app-delete-employee></mat-tab>
-     <mat-tab label="Add Products"><app-add-product (updateProducts)="updateProducts()"></app-add-product><hr/>
+     <mat-tab><ng-template mat-tab-label>Add Employee<mat-icon>add</mat-icon></ng-template><app-add-employee></app-add-employee></mat-tab>
+     <mat-tab><ng-template mat-tab-label>Delete Employee<mat-icon>clear</mat-icon></ng-template><app-delete-employee></app-delete-employee></mat-tab>
+     <mat-tab><ng-template mat-tab-label>Add Products<mat-icon>add</mat-icon></ng-template><app-add-product (updateProducts)="updateProducts()"></app-add-product><hr/>
       <app-retrieve-product [products]="products"></app-retrieve-product>
      </mat-tab>
-     <mat-tab label="Update Product Price"><app-update-product-price (updateProducts)="updateProducts()"></app-update-product-price><hr/>
+     <mat-tab><ng-template mat-tab-label>Update Product Price<mat-icon>edit</mat-icon></ng-template><app-update-product-price (updateProducts)="updateProducts()"></app-update-product-price><hr/>
       <app-retrieve-product [products]="products"></app-retrieve-product>
      </mat-tab>
-     <mat-tab label="Update Product Quantity"><app-update-product-quantity (updateProducts)="updateProducts()"></app-update-product-quantity><hr/>
+     <mat-tab><ng-template mat-tab-label>Update Product Quantity<mat-icon>edit</mat-icon></ng-template><app-update-product-quantity (updateProducts)="updateProducts()"></app-update-product-quantity><hr/>
       <app-retrieve-product [products]="products"></app-retrieve-product>
      </mat-tab>
-     <mat-tab label="Delete Product"><app-delete-product (updateProducts)="updateProducts()"></app-delete-product><hr/>
+     <mat-tab><ng-template mat-tab-label>Delete Product<mat-icon>clear</mat-icon></ng-template><app-delete-product (updateProducts)="updateProducts()"></app-delete-product><hr/>
       <app-retrieve-product [products]="products"></app-retrieve-product>
     </mat-tab>
-     <mat-tab label="View Requests"><app-view-requests></app-view-requests></mat-tab>
+    <mat-tab><ng-template mat-tab-label>View Requests<mat-icon>list</mat-icon></ng-template><app-view-requests></app-view-requests></mat-tab>
     </mat-tab-group>
     </div>
     <br>
     <router-outlet>
     </router-outlet>
   </div>
+</div>
 </body>
