@@ -2,35 +2,32 @@ const EmployeeModel = require("../model/employee.model");
 
 // Employee Sign In 
 let empSignIn = (req,res) =>{
-    const email = eval(req.body.email);
+    console.log(req)
+    const email = req.body.email;
     const pass = req.body.pass;
-    EmployeeModel.findOne({emailId: email, password:pass} , (err,data) => {
+    
+    EmployeeModel.find({emailId: email, password:pass} , (err,data) => {
         if(!err){
-            res.redirect('/empDash')
-            // res.json(data);
+            // res.redirect('/empDash')
+             res.json(data);
         }else{
             res.send(err.message)
         }
     })
 }
 
-// Employee SignUp
-let empSignUp = (req,res) =>{
-    const email = eval(req.body.email);
+let getID = (req,res) =>{
+   
+    const email = req.body.email;
     const pass = req.body.pass;
-    const employee = new employeeModel({
-    emailId: email,
-    password : pass,
-});
-
-employee.save((err,result)=> {
-    if(!err){
-        res.send("Record stored successfully ")
-        //res.json({"msg":"Record stored successfully"})
-    }else {
-        res.send("Record didn't store ");
-    }
-})
+    
+    EmployeeModel.find({emailId: email, password:pass} , (err,data) => {
+        if(!err){
+             res.send(data[0]);
+        }else{
+            res.send(err.message)
+        }
+    })
 }
 
 // Employee Update Password
@@ -90,4 +87,5 @@ const deleteEmployeeById= (req,res)=> {
     })
 }
 
-module.exports = {empSignIn, empSignUp, addEmployeeInfo, deleteEmployeeById, updateEmpPass}
+
+module.exports = {getID, empSignIn,  addEmployeeInfo, deleteEmployeeById, updateEmpPass}

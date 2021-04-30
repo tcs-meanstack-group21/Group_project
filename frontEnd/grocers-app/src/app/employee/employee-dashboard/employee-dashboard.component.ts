@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDashboardComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  name: string | null = sessionStorage.getItem("name");
 }
