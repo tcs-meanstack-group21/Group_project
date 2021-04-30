@@ -20,9 +20,10 @@ export class CustomerService {
       console.log("err "+ err.message)
     })
   }
-  custSignUp(value : any){
-    console.log(JSON.stringify(value))
-    this.http.post(this.ipAddress+"/customer/custSignUp", value ).
+ 
+  
+  custSignUp(customerRef:any){
+    this.http.post(this.ipAddress+"/customer/custSignUp",customerRef,{responseType:"text"}).
     subscribe(result => {
       console.log(result)
     }, err => {
@@ -65,6 +66,6 @@ export class CustomerService {
   }
 
   raiseTicket(value: any) {
-    return this.http.post(this.ipAddress + "/ticket/raiseTicket", value)
+    return this.http.post(this.ipAddress + "/ticket/raiseTicket", value, {responseType: "text"})
   }
 }

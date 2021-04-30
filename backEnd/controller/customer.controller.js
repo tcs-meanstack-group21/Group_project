@@ -155,24 +155,33 @@ let custSignIn = (req, res) => {
         }
     })
 }
-let custSignUp = (req, res) => {
-    const cid = eval(req.body.user);
-    const pass = req.body.pass;
-    const customer = new CustomerModel({
-        _id: cid,
-        password: pass,
-    });
 
-    customer.save((err, result) => {
-        if (!err) {
-            console.log(cid + "," + pass)
+let custSignUp = (req,res) =>{
+    const customer = new CustomerModel({
+        
+        firstname:req.body.firstname,
+        lastname:req.body.lastname,
+        birthDate:req.body.birthDate,
+        phone:req.body.phone,
+        email:req.body.email,
+        password:req.body.password,
+        street:req.body.street,
+        aptUnit:req.body.aptUnit,
+        city:req.body.city,
+        state:req.body.state,
+        city:req.body.city,
+        PostalCode:req.body.postalCode,
+    
+    });
+    
+    customer.save((err,result)=> {
+        if(!err){
             res.send("Record stored successfully ")
             //res.json({"msg":"Record stored successfully"})
-        } else {
-            res.send("Record didn't store ");
+        }else {
+            res.send(+err+ "Record didn't store ");
         }
     })
-}
-
-
+    }
+    
 module.exports = { getCart, addProductToCart, removeProductFromCart, checkout, addFunds, getFunds, custSignIn, custSignUp }

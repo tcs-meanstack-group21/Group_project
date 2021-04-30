@@ -17,4 +17,9 @@ export class EmployeeService {
     this.http.post(`${this.ipAddress}/employee/empSignIn`, value, {responseType:"text"})
   }
 
+  updateProfile( profileRef:any ):any {
+    return this.http.put("http://localhost:9090/employee/empEdit", profileRef, { responseType: 'text' })
+  }
+
+
 }

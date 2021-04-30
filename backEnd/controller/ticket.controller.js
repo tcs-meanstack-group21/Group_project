@@ -21,14 +21,19 @@ const raiseTicket = (req, res) => {
                         CustomerModel.findByIdAndUpdate(userId, { ticket: ticketData }, { useFindAndModify: false }, (err3, data) => {
                             if (!err3) {
                                 res.send("Ticket Successfully raised");
-                            } else res.send("Could not update customer");
+                                console.log("yes. raised")
+                            } else { 
+                                res.send("Could not update customer");
+                                console.log("no...")
+                            }
+
                         })
-                    }
+                    } else res.send("Error generated at create ticket: ")
                 })
             } else {
-                res.send("Error generated at find user: " + err1);
+                res.send("User locked status: " + user.lockedStatus + " " + err1);
             }
-        }
+        } else res.send("No user found");
     })
 }
 
