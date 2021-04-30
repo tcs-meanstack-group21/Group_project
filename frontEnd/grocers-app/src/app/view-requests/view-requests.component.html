@@ -1,21 +1,25 @@
-<div>
+<div class="container">
     <h2>Employee Product Requests</h2>
-    <table>
-        <tr>
-            <th>SKU</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Current Quantity</th>
-            <th>Requested Quantity</th>
-            <th>Employee Id</th>
-        </tr>
-        <tr *ngFor="let request of requests">
-            <td>{{request.SKU}}</td>
-            <td>{{request.name}}</td>
-            <td>{{request.price}}</td>
-            <td>{{request.currentQuantity}}</td>
-            <td>{{request.requestQuantity}}</td>
-            <td>{{request.empId}}</td>
-        </tr>
+    <table class="table table-hover">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">SKU</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Current Quantity</th>
+                <th scope="col">Requested Quantity</th>
+                <th scope="col">Employee Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of requests">
+                <td>{{request.SKU}}</td>
+                <td>{{request.name}}</td>
+                <td>{{request.price}}</td>
+                <td>{{request.currentQuantity}}</td>
+                <td>{{request.requestQuantity}}</td>
+                <td>{{request.empId}}</td>
+            </tr>
+        </tbody>
     </table>
 </div>
