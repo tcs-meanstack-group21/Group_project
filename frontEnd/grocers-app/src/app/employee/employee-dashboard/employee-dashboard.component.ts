@@ -11,10 +11,10 @@ import { RequestService } from 'src/app/request.service';
 })
 export class EmployeeDashboardComponent implements OnInit {
 
-  name : string = "employee";
+  // name : string = "employee";
   orders:Array<Order> = []
   requests?:Array<Request>;
-
+  
   constructor( public ordService:OrderService, public reqService:RequestService ) { }
 
   ngOnInit( ): void {
@@ -25,4 +25,5 @@ export class EmployeeDashboardComponent implements OnInit {
   refreshTable(){
     this.reqService.retrieveRequests().subscribe( result => this.requests = result)
   }
+  name: string | null = sessionStorage.getItem("name");
 }

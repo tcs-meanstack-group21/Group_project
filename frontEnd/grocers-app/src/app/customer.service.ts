@@ -9,16 +9,24 @@ import { Observable } from 'rxjs';
 export class CustomerService {
 
   ipAddress : string = "http://localhost:9090";
+  message? : string
   
   constructor(private http : HttpClient, private router : Router ) { }
 
-  custSignIn(value : any){
-    this.http.get(this.ipAddress+"/customer/custSignIn", value, ).
-    subscribe(result => {
-      this.router.navigate(["custDash"])
-    }, err => {
-      console.log("err "+ err.message)
-    })
+  custSignIn(value : any) : any{
+    return this.http.post(this.ipAddress+"/customer/custSignIn", value, {responseType:"text"}).subscribe((result : string)=>{
+     
+      if(result!=="null"){
+        const resultObj = JSON.parse(result)
+        console.log(resultObj)
+        sessionStorage.setItem("customer",resultObj._id)
+        sessionStorage.setItem("email",resultObj.email)
+        this.router.navigate(["customer/cart"])
+      }
+      else{
+        this.message = "Invalid Login Credentials";
+      }
+    },(error:string)=>this.message=error);  
   }
  
   
@@ -31,22 +39,21 @@ export class CustomerService {
     })
   }
   addFunds(amount : any){
+    return this.http.put(this.ipAddress+`/customer/addFunds`,amount , {responseType: "text"})
+  }
 
-    const objAmount = JSON.parse(amount)
-    return this.http.put(this.ipAddress+`/customer/addFunds`,objAmount , {responseType: "text"}).subscribe(result => {
+  updatePro(value : any) : any{
+    this.http.put("http://localhost:9090/customer/updateProf", value , {responseType : "text"}).
+    subscribe(result => {
       console.log(result)
     }, err => {
       console.log("err "+ err.message)
     })
   }
+  
 
-  getFunds(id:any){
-    return this.http.get(this.ipAddress+`/customer/addFunds` , {responseType: "text"}).subscribe(result => {
-      console.log(result)
-      return result
-    }, err => {
-      console.log("err "+ err.message)
-    })
+  getFunds(value : any){
+    return this.http.post(this.ipAddress+`/customer/getFunds` ,value)
   }
 
   getCart(uid: any): Observable<any> {
