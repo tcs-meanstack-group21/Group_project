@@ -6,6 +6,6 @@ const OrderController = require("../controller/order.controller");
 
 router.put("/statusUpdate", OrderController.changeOrderStatus)
 router.get("/retrieveOrders", OrderController.retrieveOrders)
-
-
+router.get("/orders", OrderController.orderStatus)
+router.delete("/orderDelete", OrderController.orderDelete)
 module.exports=router;

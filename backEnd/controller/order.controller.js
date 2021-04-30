@@ -18,6 +18,29 @@ let changeOrderStatus = (req,res) =>{
     })
 }
 
+let orderStatus = (req,res) =>{
+    const cust = req.body.id
+    orderModel.find( {customer:cust}, (error, result) => {
+        if (!error){
+            res.json(result)
+        }
+    })
+}
+let orderDelete = (req,res) =>{
+    let oid = req.body.id;
+    orderModel.deleteOne({_id:oid},(err,result)=> {
+        if(!err){
+                if(result.deletedCount>0){
+                    res.send("Record deleted successfully")
+                }else {
+                    res.send("Record not present");
+                }
+        }else {
+            res.send("Error generated "+err);
+        }
+    })
+}
+
 let retrieveOrders = (req, res) => {
     orderModel.find( {}, (error, result) => {
         if (!error){
@@ -26,4 +49,4 @@ let retrieveOrders = (req, res) => {
     })
 }
 
-module.exports = {changeOrderStatus, retrieveOrders}
+module.exports = {changeOrderStatus, retrieveOrders, orderStatus, orderDelete}
