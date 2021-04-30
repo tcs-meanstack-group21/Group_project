@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   constructor(private route: ActivatedRoute, private custSer: CustomerService, private prodSer: ProductService) { }
 
   ngOnInit(): void {
-      this.uid = sessionStorage.getItem("id") || "-1";
+      this.uid = sessionStorage.getItem("customer") || "-1";
       this.custSer.getCart(this.uid).subscribe(data => { this.cart = data.cart; this.cartProducts = data.result });
       this.prodSer.retrieveProductDetails().subscribe(data => this.products = data);
   }

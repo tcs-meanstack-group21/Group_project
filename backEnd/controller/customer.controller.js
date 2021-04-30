@@ -80,20 +80,20 @@ const checkout = (req, res) => {
                         res.send("Insufficient funds");
                         return;
                     }
-                    const newId = Math.round(Math.random() * Number.MAX_SAFE_INTEGER)
-                    OrderModel.create({ _id: newId, customer: user._id, cart: user.cart }, (err3, order) => {
+                    OrderModel.create({ customer: user._id, cart: user.cart }, (err3, order) => {
                         if (err3) {
                             res.send("Could not create order: " + err3);
                             return;
                         }
                         const tempCart = user.cart;
                         for (product of products) {
-                            ProductModel.findByIdAndUpdate(product._id, {quantity: product.quantity - tempCart.get(product._id.toString())}, { useFindAndModify: false }, (errp, prod) => console.log(errp))
+                            ProductModel.findByIdAndUpdate(product._id, {quantity: product.quantity - tempCart.get(product._id.toString())}, { useFindAndModify: false }, (errp, prod) => {})
                         }
                         CustomerModel.findByIdAndUpdate(userId, { order: order._id, funds: user.funds - cartCost, cart: {} }, { useFindAndModify: false }, (err4, cust) => {
                             if (!err4) {
                                 res.send("Order successfully placed");
                             } else {
+                                console.log(user)
                                 res.send("Could not update user: " + err4);
                             }
                         })
