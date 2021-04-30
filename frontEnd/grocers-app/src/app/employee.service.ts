@@ -9,20 +9,12 @@ export class EmployeeService {
 
   ipAddress : string = "http://localhost:9090";
 
-  constructor(private http : HttpClient, private router : Router ){ }
+  constructor(private http : HttpClient ){ }
 
   
-  empSignIn(value:any){
-    this.http.get(`${this.ipAddress}/empSignIn`, value ).
-    subscribe(result => {
-      console.log(result)
-      if(result !== null){
-        this.router.navigate(["empDash"])
-      }
-      // 
-    }, err => {
-      console.log("err "+ err.message)
-    })
+  empSignIn(value:any):any {
+    console.log(value)
+    this.http.post(`${this.ipAddress}/employee/empSignIn`, value, {responseType:"text"})
   }
 
 }

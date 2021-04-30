@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -16,13 +17,21 @@ export class EmpSignInComponent implements OnInit {
 
   message?: string ;
 
-  constructor(private empServer: EmployeeService ) { }
+  constructor(private empServer: EmployeeService , private router: Router) { }
 
   ngOnInit(): void {
   }
    signIn(){ 
-     this.empServer.empSignIn(this.signInInfo.value);
-     this.message = "Not correct username and password"
+    this.empServer.empSignIn(this.signInInfo.value).subscribe((result:string)=>{
+        this.message=result
+        if(this.message!=="null"){
+          this.router.navigate(["../empDash"])
+        }
+        else{
+          this.message = "Invalid Login Credentials"
+          console.log(this.message)
+        }
+      },(error:string)=>this.message=error);  
   }   
 
 }

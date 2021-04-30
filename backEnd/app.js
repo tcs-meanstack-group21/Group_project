@@ -17,8 +17,7 @@ mongoose.connect(url,mongooseDbOption);
 mongoose.Promise = global.Promise;
 mongoose.connection
 
-const route = require("./router/router.js");
-app.use("/",route)
+
 
 const customerRouter = require("./router/customer.router.js");
 app.use("/customer", customerRouter);
