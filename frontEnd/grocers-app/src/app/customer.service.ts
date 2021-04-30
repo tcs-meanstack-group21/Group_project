@@ -68,4 +68,8 @@ export class CustomerService {
   raiseTicket(value: any) {
     return this.http.post(this.ipAddress + "/ticket/raiseTicket", value, {responseType: "text"})
   }
+
+  removeLock( cust: any, tic: any) {
+    return this.http.delete(this.ipAddress + `/ticket/unLock/${cust}/${tic}`)
+  }
 }

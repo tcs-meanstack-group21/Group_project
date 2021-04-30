@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="floatLeft intro">Welcome (place employee name here) :)</h1>
+    <h1 class="floatLeft intro">Welcome!</h1>
     <!-- Main NavBar for Employee view -->
     <div class="floatLeft">
         <a mat-stroked-button color="primary" class="btn" routerLink="../empReq"><i class="bi bi-bag"></i> Send Product Request</a>
@@ -8,15 +8,60 @@
         <a mat-stroked-button color="primary" class="btn" routerLink="../empEdit"><i class="bi bi-pencil-square"></i> Edit Profile</a>
     </div>
     <!-- Logout for Employee -->
-    <button class="btn floatRight" mat-stroked-button color="primary"><i class="bi bi-box-arrow-right"></i> Logout</button>
+    <button class="btn floatRight" mat-stroked-button color="primary" routerLink=""><i class="bi bi-box-arrow-right"></i> Logout</button>
         
     <hr class="clearFix">
 
-    <div class="center">
-       <p>Fun employee overview / stats can go here!</p>
-       <p>Maybe list of order statuses</p>
-       <p>Maybe list of current product quantities</p>
-       <p>Maybe list of currently locked users IF any</p>
-       
+    <div class="center dash">
+
+    <!-- Container for current order view -->
+    <div class="container square">
+        <div class="tableDisplay">
+            <h1>Current Orders</h1>
+            <table class="table table-bordered table-striped table-hover table-responsive-lg">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Order #</th>
+                        <th scope="col">Order Placed</th>
+                        <th scope="col">Order Status</th>
+                        <th scope="col">Customer Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row" *ngFor="let ord of orders">
+                        <td>{{ord._id}}</td>
+                        <td>{{ord.dateOrdered}}</td>
+                        <td>{{ord.orderStatus}}</td>
+                        <td>{{ord.customer}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+      <!-- Display Pending Requests in Table for Employee -->
+      <div class="container square2">
+      <div class="tableDisplay">
+        <button class="btn floatRight" mat-stroked-button color="primary" (click)="refreshTable()"><i class="bi bi-arrow-repeat"></i> Refresh</button>
+        <h1>Pending Requests</h1>        
+        <table class="table table-bordered table-striped table-hover table-responsive-lg">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Request ID</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let req of requests">
+                    <td>{{req._id}}</td>
+                    <td>{{req.name}}</td>
+                    <td>$ {{req.price}}</td>
+                    <td>{{req.requestQuantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </div>

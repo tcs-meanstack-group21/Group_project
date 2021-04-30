@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Request } from 'src/app/model.request';
+import { Order } from 'src/app/order.model';
+import { OrderService } from 'src/app/order.service';
+import { RequestService } from 'src/app/request.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDashboardComponent implements OnInit {
 
-  constructor() { }
+  name : string = "employee";
+  orders:Array<Order> = []
+  requests?:Array<Request>;
 
-  ngOnInit(): void {
+  constructor( public ordService:OrderService, public reqService:RequestService ) { }
+
+  ngOnInit( ): void {
+    this.ordService.retrieveOrder().subscribe(result => this.orders = result)
+    this.reqService.retrieveRequests().subscribe( result => this.requests = result)
   }
 
+  refreshTable(){
+    this.reqService.retrieveRequests().subscribe( result => this.requests = result)
+  }
 }

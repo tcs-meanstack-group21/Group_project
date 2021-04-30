@@ -21,3 +21,24 @@ h1 {
     padding: 20px;
   }
   
+  .square{
+    width: 50%;
+    margin-left: 50%;
+    border: solid 1px purple;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .square2{
+    width: 50%;
+    margin-right: 55%;
+    border: solid 1px purple;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 600px;
+    display: inline-block;
+  }
+
+  .dash {
+    display: inline;
+  }

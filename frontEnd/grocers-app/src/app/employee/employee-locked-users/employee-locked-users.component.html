@@ -9,12 +9,30 @@
 
     </div>
     <!-- Logout for Employee -->
-    <button class="btn floatRight" mat-stroked-button color="primary"><i class="bi bi-box-arrow-right"></i> Logout</button>
+    <button class="btn floatRight" mat-stroked-button color="primary" routerLink=""><i class="bi bi-box-arrow-right"></i> Logout</button>
         
     <hr class="clearFix">
 
     <div class="center">
-       <p>List of locked users and their requests here</p>
-       <p>Displayed in table with option to 'unlock' users / remove them from list to unlock the account</p>
+       <div class="container">
+           <h1>Locked Customer Accounts</h1>
+        <table class="table table-hover">
+            <thead class="table-light">
+                <th scope="col">Ticket #</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tick of tickets">
+                    <td>{{tick._id}}</td>
+                    <td>{{tick.customer}}</td>
+                    <td>{{tick.body}}</td>
+                    <td><button class="btn" mat-stroked-button color="primary" (click)="removeTicket(tick)"> Unlock Account</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     </div>
 </div>
